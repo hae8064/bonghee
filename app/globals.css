@@ -19,6 +19,15 @@
   }
 }
 
+/* font size custom */
+@theme inline {
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-xl: 2rem;
+  --font-size-2xl: 1.75rem;
+  --font-size-3xl: 2rem;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
