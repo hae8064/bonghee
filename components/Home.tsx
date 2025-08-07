@@ -2,11 +2,11 @@
 
 import React from "react";
 import Main from "./Main";
-import AboutMe from "./AboutMe";
+import AboutMe from "./AboutMe/AboutMe";
 
 const Home = () => {
   return (
-    <div className="flex flex-col w-screen h-screen relative">
+    <div className="flex flex-col w-full h-screen relative">
       <div className="fixed top-0 w-full h-full">
         <Main />
       </div>

@@ -15,11 +15,28 @@ const Main = () => {
       e.preventDefault();
     };
 
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      // Main 컴포넌트 영역에 있을 때만 스크롤 차단
+      const isInMainArea = scrollY === 0;
+
+      if (!isTypingComplete && isInMainArea) {
+        document.body.style.overflow = "hidden";
+        window.addEventListener("scroll", preventScroll, { passive: false });
+        window.addEventListener("wheel", preventScroll, { passive: false });
+        window.addEventListener("touchmove", preventScroll, { passive: false });
+      } else {
+        document.body.style.overflow = "auto";
+        window.removeEventListener("scroll", preventScroll);
+        window.removeEventListener("wheel", preventScroll);
+        window.removeEventListener("touchmove", preventScroll);
+      }
+    };
+
     if (!isTypingComplete) {
-      document.body.style.overflow = "hidden";
-      window.addEventListener("scroll", preventScroll, { passive: false });
-      window.addEventListener("wheel", preventScroll, { passive: false });
-      window.addEventListener("touchmove", preventScroll, { passive: false });
+      handleScroll(); // 초기 상태 설정
+      window.addEventListener("scroll", handleScroll);
     }
 
     // 타이핑 애니메이션
@@ -36,11 +53,12 @@ const Main = () => {
           setShowMainContent(true);
           setIsTypingComplete(true);
 
-          // 스크롤 다시 활성화
+          // 타이핑 완료 시 스크롤 제한 해제
           document.body.style.overflow = "auto";
           window.removeEventListener("scroll", preventScroll);
           window.removeEventListener("wheel", preventScroll);
           window.removeEventListener("touchmove", preventScroll);
+          window.removeEventListener("scroll", handleScroll);
         }, 1000);
       }
     }, 300);
@@ -52,8 +70,9 @@ const Main = () => {
       window.removeEventListener("scroll", preventScroll);
       window.removeEventListener("wheel", preventScroll);
       window.removeEventListener("touchmove", preventScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [isTypingComplete]);
 
   return (
     <main className="relative w-full h-full flex flex-col justify-center items-center gap-4 overflow-hidden">
