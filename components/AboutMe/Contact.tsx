@@ -11,7 +11,7 @@ const Contact = () => {
   return (
     <div>
       <h4 className="text-xl font-semibold text-white mb-4">Contact</h4>
-      <div className="space-y-3 text-white/80">
+      <div className="grid grid-cols-2 gap-4 text-white/80">
         <div className="flex items-center gap-3">
           <FaEnvelope className="text-lg text-blue-400" />
           <span>hae8064@gmail.com</span>
@@ -20,11 +20,6 @@ const Contact = () => {
         <div className="flex items-center gap-3">
           <FaPhone className="text-lg text-green-400" />
           <span>010-2413-8607</span>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <FaMapMarkerAlt className="text-lg text-red-400" />
-          <span>서울특별시 금천구</span>
         </div>
 
         <div className="flex items-center gap-3">
