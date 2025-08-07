@@ -5,9 +5,23 @@ const Main = () => {
   const [typingText, setTypingText] = useState("");
   const [showMainContent, setShowMainContent] = useState(false);
   const [showGreeting, setShowGreeting] = useState(true);
+  const [isTypingComplete, setIsTypingComplete] = useState(false);
+
   const greeting = "안녕하세요:)";
 
   useEffect(() => {
+    // 타이핑 완료 전까지 스크롤 막기
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+    };
+
+    if (!isTypingComplete) {
+      document.body.style.overflow = "hidden";
+      window.addEventListener("scroll", preventScroll, { passive: false });
+      window.addEventListener("wheel", preventScroll, { passive: false });
+      window.addEventListener("touchmove", preventScroll, { passive: false });
+    }
+
     // 타이핑 애니메이션
     let index = 0;
     const typingInterval = setInterval(() => {
@@ -20,11 +34,25 @@ const Main = () => {
         setTimeout(() => {
           setShowGreeting(false);
           setShowMainContent(true);
+          setIsTypingComplete(true);
+
+          // 스크롤 다시 활성화
+          document.body.style.overflow = "auto";
+          window.removeEventListener("scroll", preventScroll);
+          window.removeEventListener("wheel", preventScroll);
+          window.removeEventListener("touchmove", preventScroll);
         }, 1000);
       }
     }, 300);
 
-    return () => clearInterval(typingInterval);
+    return () => {
+      clearInterval(typingInterval);
+      // 컴포넌트 언마운트 시 스크롤 복원
+      document.body.style.overflow = "auto";
+      window.removeEventListener("scroll", preventScroll);
+      window.removeEventListener("wheel", preventScroll);
+      window.removeEventListener("touchmove", preventScroll);
+    };
   }, []);
 
   return (
