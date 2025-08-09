@@ -2,7 +2,9 @@
 
 import React from "react";
 import Main from "./Main";
-import AboutMe from "./AboutMe/AboutMe";
+import AboutMe from "./aboutMe/AboutMe";
+import Projects from "./projects/Projects";
+import Experience from "./experience/Experience";
 
 const Home = () => {
   return (
@@ -14,6 +16,8 @@ const Home = () => {
         className={`absolute top-full w-full h-full transition-all duration-1000 ease-out`}
       >
         <AboutMe />
+        <Experience />
+        <Projects />
       </div>
     </div>
   );
