@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 이봉희 포트폴리오 웹사이트
+3년 차 웹 풀스택 개발자 이봉희의 포트폴리오 웹사이트입니다. 모던한 UI/UX와 반응형 디자인을 적용하여 제작되었습니다.
+<img width="1198" height="808" alt="image" src="https://github.com/user-attachments/assets/0e1dd655-1a5d-497a-bc71-30ed33fb2e7e" />
 
-## Getting Started
 
-First, run the development server:
+## 🛠️ 기술 스택
 
+### Frontend
+- **Framework**: Next.js 15.3.4 (App Router)
+- **Language**: TypeScript 5.0
+- **UI Library**: React 19.0.0
+- **Styling**: Tailwind CSS 4.0
+- **Animation**: Framer Motion
+- **Icons**: React Icons 5.5.0
+
+### Development Tools
+- **Package Manager**: pnpm
+- **Linting**: ESLint 9.0
+- **Code Formatting**: Prettier
+- **Type Checking**: TypeScript
+
+### Deployment
+- **Platform**: Vercel
+- **Domain**: GitHub Pages
+
+## 🎯 주요 섹션
+
+1. **About Me**: 자기소개, 기술 스택, 연락처
+2. **Experience & Education**: 경력 사항 및 교육 이력
+3. **Projects**: 주요 프로젝트 포트폴리오
+
+## 🚀 시작하기
+
+### Prerequisites
+- Node.js 18.0 이상
+- pnpm (권장) 또는 npm
+
+### Installation
+
+1. 저장소 클론
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/hae8064/bonghee.git
+cd bonghee
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. 의존성 설치
+```bash
+pnpm install
+# 또는
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. 개발 서버 실행
+```bash
+pnpm dev
+# 또는
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. 브라우저에서 [http://localhost:3000](http://localhost:3000) 열기
 
-## Learn More
+### Build
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm build
+pnpm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 스크립트
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `pnpm dev`: 개발 서버 실행 (Turbopack 사용)
+- `pnpm build`: 프로덕션 빌드
+- `pnpm start`: 프로덕션 서버 실행
+- `pnpm lint`: ESLint로 코드 검사
 
-## Deploy on Vercel
+## 디자인 시스템
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **색상**: 다크 테마 기반 (#232323, #2a2a2a, #1a1a1a)
+- **폰트**: Geist Sans, Geist Mono
+- **애니메이션**: CSS transitions, Framer Motion
+- **레이아웃**: CSS Grid, Flexbox
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스 하에 배포됩니다.
+
+## 📞 연락처
+
+- **GitHub**: [@hae8064](https://github.com/hae8064)
+- **Email**: [hae8064@gmail.com]
+
+---
+
+⭐ 이 프로젝트가 도움이 되었다면 스타를 눌러주세요!
