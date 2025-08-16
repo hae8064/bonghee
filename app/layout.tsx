@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "개발자 이봉희 포트폴리오",
   description: "3년 차 웹 풀스택 개발자 | 더 나은 사용자 경험을 만드는 개발자",
+  icons: {
+    icon: "/bh_logo.png",
+  },
 };
 
 export default function RootLayout({
@@ -23,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
