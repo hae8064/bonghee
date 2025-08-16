@@ -222,6 +222,7 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
                     alt={project.title}
                     fill
                     className="object-cover"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 1200px"
                   />
                 </motion.div>
               ) : null}
