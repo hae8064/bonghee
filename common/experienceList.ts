@@ -13,7 +13,7 @@ export const workExperiences: WorkExperienceType[] = [
       "motor 도입을 통한 API 성능 개선",
       "병원 내 On-Premise 서비스 구축",
     ],
-    technologies: ["FrontEnd 개발", "Backend 개발", "DevOps"],
+    technologies: ["FrontEnd 개발", "BackEnd 개발", "DevOps"],
   },
   {
     id: 2,
