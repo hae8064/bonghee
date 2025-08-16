@@ -12,11 +12,12 @@ interface ProjectDetail {
 }
 
 interface ProjectImage {
-  id: string;
-  url: string;
-  alt: string;
+  id?: string;
+  url?: string;
+  alt?: string;
   caption?: string;
-  type: "screenshot" | "diagram" | "mockup" | "wireframe" | "other";
+  type?: "screenshot" | "diagram" | "mockup" | "wireframe" | "other";
+  isNull?: boolean;
 }
 
 interface ProjectVideo {

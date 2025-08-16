@@ -1,5 +1,5 @@
 import { ProjectType } from "@/types/projectType";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -11,6 +11,12 @@ interface ProjectDetailProps {
 
 const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null); // 이미지 확대용 상태 추가
+
+  // 이미지 확대 모달 닫기
+  const closeImageModal = () => {
+    setSelectedImage(null);
+  };
 
   // ESC 키로 닫기
   useEffect(() => {
@@ -101,7 +107,7 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
           >
             {/* 헤더 */}
             <motion.div
-              className="sticky top-0 bg-gradient-to-r from-[#232323] to-[#2a2a2a] p-6 border-b border-white/10"
+              className="sticky top-0 bg-gradient-to-r from-[#232323] to-[#2a2a2a] p-6 border-b border-white/10 z-10"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1, duration: 0.3 }}
@@ -158,23 +164,6 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.4 }}
             >
-              {/* 프로젝트 이미지 */}
-              {project.imageUrl && (
-                <motion.div
-                  className="relative h-64 rounded-lg overflow-hidden"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.3, duration: 0.4 }}
-                >
-                  <Image
-                    src={project.imageUrl}
-                    alt={project.title}
-                    fill
-                    className="object-cover"
-                  />
-                </motion.div>
-              )}
-
               {/* 프로젝트 영상 (우선순위: 영상 > 이미지) */}
               {project.detail?.videos && project.detail.videos.length > 0 ? (
                 <motion.div
@@ -393,7 +382,7 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
                           <div className="w-2 h-2 bg-red-400 rounded-full mt-2 flex-shrink-0"></div>
                           <h4 className="text-white font-medium">이슈</h4>
                         </div>
-                        <p className="text-white/80 mb-3 leading-relaxed">
+                        <p className="text-white/80 mb-3 leading-relaxed whitespace-pre-line">
                           {challenge}
                         </p>
 
@@ -405,30 +394,46 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
                                 해결 방법
                               </h4>
                             </div>
-                            <p className="text-white/80 leading-relaxed">
+                            <p className="text-white/80 leading-relaxed whitespace-pre-line">
                               {project.detail?.solutions[index]}
                             </p>
+
+                            {/* 이미지 부분 - 축소된 크기 */}
+                            {project.detail.images &&
+                              project.detail.images[index] &&
+                              !project.detail.images[index].isNull && (
+                                <motion.div
+                                  className="relative rounded-lg overflow-hidden flex-shrink-0"
+                                  style={{
+                                    width: "100%",
+                                    minHeight: "400px",
+                                  }}
+                                  initial={{ opacity: 0, scale: 0.95 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{
+                                    delay: 1.1 + index * 0.1,
+                                    duration: 0.4,
+                                  }}
+                                >
+                                  <Image
+                                    src={project.detail.images[index].url!}
+                                    alt={project.detail.images[index].alt!}
+                                    fill
+                                    className="object-contain hover:scale-105 transition-transform duration-200"
+                                    onClick={() =>
+                                      setSelectedImage(
+                                        project.detail?.images?.[index]?.url ??
+                                          ""
+                                      )
+                                    }
+                                  />
+                                </motion.div>
+                              )}
                           </>
                         )}
                       </motion.div>
                     ))}
                   </div>
-                </motion.div>
-              )}
-
-              {/* 프로젝트 개요 */}
-              {project.detail && project.detail.overview && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 1.0, duration: 0.3 }}
-                >
-                  <h3 className="text-xl font-semibold text-white mb-4">
-                    프로젝트 개요
-                  </h3>
-                  <p className="text-white/80 leading-relaxed">
-                    {project.detail.overview}
-                  </p>
                 </motion.div>
               )}
 
@@ -497,6 +502,41 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
                 )}
               </motion.div>
             </motion.div>
+          </motion.div>
+        </motion.div>
+      )}
+
+      {selectedImage && (
+        <motion.div
+          key={selectedImage}
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[60] flex items-center justify-center p-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={closeImageModal}
+        >
+          <motion.div
+            className="relative max-w-[90vw] max-h-[90vh]"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={selectedImage}
+              alt="확대된 이미지"
+              width={800}
+              height={600}
+              className="object-contain max-w-full max-h-full rounded-lg"
+            />
+
+            {/* 닫기 버튼 */}
+            <button
+              onClick={closeImageModal}
+              className="absolute top-4 right-4 w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors"
+            >
+              ✕
+            </button>
           </motion.div>
         </motion.div>
       )}
