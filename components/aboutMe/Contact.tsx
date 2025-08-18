@@ -10,19 +10,21 @@ import {
 const Contact = () => {
   return (
     <div>
-      <h4 className="text-xl font-semibold text-white mb-4">Contact</h4>
-      <div className="grid grid-cols-2 gap-4 text-white/80">
-        <div className="flex items-center gap-3">
-          <FaEnvelope className="text-lg text-blue-400" />
-          <span>hae8064@gmail.com</span>
+      <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">
+        Contact
+      </h4>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 text-white/80 text-sm sm:text-base">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <FaEnvelope className="text-base sm:text-lg text-blue-400 flex-shrink-0" />
+          <span className="break-all">hae8064@gmail.com</span>
         </div>
 
-        <div className="flex items-center gap-3">
-          <FaPhone className="text-lg text-green-400" />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <FaPhone className="text-base sm:text-lg text-green-400 flex-shrink-0" />
           <span>010-2413-8607</span>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <svg
             role="img"
             viewBox="0 0 20 20"
@@ -30,6 +32,7 @@ const Contact = () => {
             id="Velog--Streamline-Simple-Icons"
             height="20"
             width="20"
+            className="flex-shrink-0"
           >
             <desc>Velog Streamline Icon: https://streamlinehq.com</desc>
             <title>Velog</title>
@@ -49,8 +52,8 @@ const Contact = () => {
           </a>
         </div>
 
-        <div className="flex items-center gap-3">
-          <FaGithub className="text-lg text-gray-400" />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <FaGithub className="text-base sm:text-lg text-gray-400 flex-shrink-0" />
           <a
             href="https://github.com/hae8064"
             target="_blank"

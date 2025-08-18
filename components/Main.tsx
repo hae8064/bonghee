@@ -151,7 +151,7 @@ const Main = () => {
       <AnimatePresence>
         {showGreeting && (
           <motion.div
-            className="text-white text-5xl font-bold mb-8 z-10"
+            className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 md:mb-8 z-10 px-4 text-center"
             initial={{ opacity: 0, y: -50, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -100, scale: 0.6 }}
@@ -178,7 +178,7 @@ const Main = () => {
       <AnimatePresence>
         {showMainContent && (
           <motion.div
-            className="z-10 text-center"
+            className="z-10 text-center px-4"
             initial={{ opacity: 0, y: 100, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
@@ -189,14 +189,14 @@ const Main = () => {
             }}
           >
             <motion.h2
-              className="text-white text-5xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
+              className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] leading-tight"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.8 }}
             >
               풀스택 개발자
               <motion.strong
-                className="font-extrabold text-6xl drop-shadow-[0_6px_12px_rgba(0,0,0,0.9)] inline-block ml-4"
+                className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl drop-shadow-[0_6px_12px_rgba(0,0,0,0.9)] inline-block ml-2 sm:ml-3 md:ml-4 break-words"
                 initial={{ opacity: 0, scale: 0.5, rotateY: -90 }}
                 animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                 transition={{
@@ -218,7 +218,7 @@ const Main = () => {
             </motion.h2>
 
             <motion.p
-              className="text-white text-2xl mt-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]"
+              className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 sm:mt-5 md:mt-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] px-2 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
@@ -228,13 +228,13 @@ const Main = () => {
 
             {/* 추가 장식 요소 */}
             <motion.div
-              className="flex justify-center mt-8 space-x-4"
+              className="flex justify-center mt-6 sm:mt-7 md:mt-8 space-x-3 sm:space-x-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8 }}
             >
               <motion.div
-                className="w-2 h-2 bg-blue-400 rounded-full"
+                className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-blue-400 rounded-full"
                 animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.5, 1, 0.5],
@@ -246,7 +246,7 @@ const Main = () => {
                 }}
               ></motion.div>
               <motion.div
-                className="w-2 h-2 bg-purple-400 rounded-full"
+                className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-purple-400 rounded-full"
                 animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.5, 1, 0.5],
@@ -259,7 +259,7 @@ const Main = () => {
                 }}
               ></motion.div>
               <motion.div
-                className="w-2 h-2 bg-cyan-400 rounded-full"
+                className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-cyan-400 rounded-full"
                 animate={{
                   scale: [1, 1.5, 1],
                   opacity: [0.5, 1, 0.5],
@@ -280,13 +280,13 @@ const Main = () => {
       <AnimatePresence>
         {showMainContent && (
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+            className="absolute bottom-4 sm:bottom-6 md:bottom-8 left-1/2 transform -translate-x-1/2 z-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5, duration: 0.8 }}
           >
             <motion.div
-              className="flex flex-col items-center space-y-2 cursor-pointer group"
+              className="flex flex-col items-center space-y-1 sm:space-y-2 cursor-pointer group"
               onClick={() => {
                 // 스크롤 다운 기능 (선택사항)
                 window.scrollTo({
@@ -299,7 +299,7 @@ const Main = () => {
             >
               {/* 화살표 아이콘 */}
               <motion.svg
-                className="w-8 h-8 text-white/60 group-hover:text-white transition-colors"
+                className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white/60 group-hover:text-white transition-colors"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -322,7 +322,7 @@ const Main = () => {
 
               {/* "스크롤" 텍스트 */}
               <motion.p
-                className="text-white/40 text-base font-medium group-hover:text-white/60 transition-colors"
+                className="text-white/40 text-xs sm:text-sm md:text-base font-medium group-hover:text-white/60 transition-colors"
                 animate={{
                   opacity: [0.4, 0.8, 0.4],
                 }}
