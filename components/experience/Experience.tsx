@@ -80,7 +80,7 @@ const Experience = () => {
                   className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
                 >
                   {/* 학교 정보 */}
-                  <div className="flex justify-between items-start mb-3 sm:mb-4">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 space-y-2 sm:space-y-0">
                     <div>
                       <h4 className="text-lg sm:text-xl font-semibold text-white">
                         {education.school}
@@ -89,7 +89,7 @@ const Experience = () => {
                         {education.degree} - {education.major}
                       </p>
                     </div>
-                    <span className="text-xs sm:text-sm text-white/60 bg-white/10 px-2 sm:px-3 py-1 rounded">
+                    <span className="text-xs sm:text-sm text-white/60 bg-white/10 px-2 sm:px-3 py-1 rounded self-start sm:self-auto">
                       {education.period}
                     </span>
                   </div>
