@@ -37,7 +37,7 @@ const AboutMe = () => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
       >
         {/* 왼쪽: 프로필 이미지 섹션 */}
         <motion.div className="order-1" variants={itemVariants}>

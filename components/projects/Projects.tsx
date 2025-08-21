@@ -63,7 +63,7 @@ const Projects = () => {
           className="max-w-6xl w-full space-y-8 sm:space-y-10 lg:space-y-12"
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: false, amount: 0.3, margin: "-100px 0px 0px 0px" }}
+          viewport={{ once: true, amount: 0.3, margin: "-100px 0px 0px 0px" }}
         >
           <motion.h4
             className="text-2xl sm:text-3xl md:text-4xl text-center font-bold text-white mb-4 sm:mb-6 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]"
