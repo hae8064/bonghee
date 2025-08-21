@@ -60,7 +60,7 @@ const Projects = () => {
     <div>
       <div className="w-full min-h-screen bg-gradient-to-br from-[#232323] via-[#2a2a2a] to-[#1a1a1a] flex flex-col justify-center items-center p-4 sm:p-6 md:p-8">
         <motion.div
-          className="space-y-8 sm:space-y-10 lg:space-y-12"
+          className="max-w-6xl w-full space-y-8 sm:space-y-10 lg:space-y-12"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, amount: 0.3, margin: "-100px 0px 0px 0px" }}
