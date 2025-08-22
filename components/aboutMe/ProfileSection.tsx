@@ -39,8 +39,9 @@ const ProfileSection = () => {
         {/* 상태 표시 */}
         <div className="flex items-center justify-center lg:justify-start gap-2 mt-3">
           <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
+          {/* Available for work 대체 */}
           <span className="text-green-400 text-xs sm:text-sm">
-            Available for work
+            Looking for new challenges
           </span>
         </div>
       </div>
