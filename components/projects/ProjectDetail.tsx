@@ -58,11 +58,6 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
     }
   };
 
-  // 모달 내부 스크롤 방지 (바깥 클릭 시)
-  const handleModalClick = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
-
   if (!isOpen) return null;
 
   return (

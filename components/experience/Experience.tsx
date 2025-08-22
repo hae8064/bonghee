@@ -69,7 +69,7 @@ const Experience = () => {
               Career
             </h3>
             <div className="space-y-4 sm:space-y-6">
-              {workExperiences.map((experience, index) => (
+              {workExperiences.map((experience) => (
                 <motion.div
                   key={experience.id}
                   className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10"

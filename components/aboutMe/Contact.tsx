@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  FaEnvelope,
-  FaPhone,
-  FaMapMarkerAlt,
-  FaBlog,
-  FaGithub,
-} from "react-icons/fa";
+import { FaEnvelope, FaPhone, FaGithub } from "react-icons/fa";
 
 const Contact = () => {
   return (

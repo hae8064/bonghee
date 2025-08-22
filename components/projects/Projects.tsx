@@ -76,7 +76,7 @@ const Projects = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6"
             variants={containerVariants}
           >
-            {projects.map((project: ProjectType, index: number) => (
+            {projects.map((project: ProjectType) => (
               <motion.div
                 key={project.id}
                 className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
