@@ -3,7 +3,7 @@ name: Deploy to Vercel
 on:
   pull_request:
     types: [closed] # PR이 닫힐 때만 실행
-    branches: [main]
+    branches: [develop]
 
 jobs:
   deploy:
