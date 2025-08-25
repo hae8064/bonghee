@@ -17,8 +17,8 @@ export const projects: ProjectType[] = [
       features: [
         "Tailwind CSS를 사용하여 반응형 디자인으로 모든 디바이스에서 최적화된 경험 제공",
         "Framer Motion을 사용하여 부드러운 애니메이션과 인터랙션 효과",
-        "Next.js의 메타데이터 API를 사용하여 SEO 최적화로 검색 엔진 노출도 향상",
         "모듈화된 컴포넌트 구조로 유지보수성 향상",
+        "Git Action을 통한 자동화 배포 환경 구축",
       ],
       challenges: [
         "다양한 디바이스에서 일관된 사용자 경험 제공",
@@ -52,6 +52,9 @@ export const projects: ProjectType[] = [
       "FastAPI",
       "MongoDB",
       "AWS",
+      "Motor",
+      "Redis",
+      "SQS Worker",
       "Next.js",
       "VanilaExtract",
       "Storybook",
@@ -63,7 +66,7 @@ export const projects: ProjectType[] = [
     period: "2023.08 -",
     detail: {
       overview:
-        "의료 AI 솔루션의 형태계측 데이터를 시각화하고 분석하는 웹 애플리케이션입니다. 대용량 어노테이션 처리와 캐싱 된 이미지를 관리하는 서비스입니다. 클라우드로도 서비스를 진행하고 병원 내 On-Premise 서비스로 구축 된 서비스입니다.",
+        "의료 AI 솔루션의 형태계측 데이터를 시각화·분석하는 웹 애플리케이션입니다. 대용량 어노테이션과 캐싱된 이미지를 효율적으로 관리하며, 클라우드 및 병원 내 On-Premise 환경 모두에서 구축할 수 있습니다. 또한, 2GB 이상의 대용량 이미지를 SQS 기반 큐 처리로 안정적으로 업로드하고, AI 모델과 연동하여 분석을 수행합니다.",
       features: [
         "홀슬라이드 이미지 뷰어 (대용량 의료 이미지 처리) - 대용량 어노테이션들 약 수십만개의 데이터를 한번에 Fetch 하여 렌더링",
         "Redis를 활용하여 대용량 홀슬라이드 이미지를 캐시처리하여 사용성 개선",
@@ -74,12 +77,14 @@ export const projects: ProjectType[] = [
       challenges: [
         "대용량 의료 이미지(홀슬라이드)의 효율적인 로딩과 렌더링",
         "Pymongo -> Motor로 전환",
+        "2GB 이상 대용량 이미지를 동시에 업로드할 경우 서버에 과부하 발생 병렬 업로드 요청 시 네트워크 지연 및 프로세스 충돌로 안정성 저하, On-Premise 환경에서는 FastAPI Background Task + 내부 큐를 활용하여 안정적으로 처리",
         "병원 내 보안 정책에 대응하기 위한 SSO 적용",
         "git action을 통한 자동화 배포 환경 구축 및 브랜치 전략 강화",
       ],
       solutions: [
         "이미지 타일링과 레이지 로딩을 통한 대용량 이미지 처리 최적화",
         "기존 pymongo는 동기적으로 실행하기 때문에 동시에 여러 API 호출이 들어올 때 병목현상이 발생하였다. 이 때문에 Motor로 전환하여 비동기적으로 실행하도록 하였다. \n부하 테스트인 autocannon으로 테스트 해 본 결과 평균 응답시간이 2초 -> 0.25초로 단축하였고, 요청 수도 304 Requests -> 2000 Requests 성능 향상",
+        "AWS SQS(Simple Queue Service) 기반의 큐 처리 방식 적용",
         "기존 jwt 토큰 정책으로만 관리하는 것이 아닌, SSO를 통해 인증을 관리. \n 병원 내 미들웨어에서 로그인 한 유저에 대한 session id를 세션으로 관리하여 병원 내 보안 정책에 대응. \n 사용자 움직임을 감지하여 30분간 동작 없으면 세션을 초기화 하는 기능 추가",
         "특정 브랜치 merge 시 자동으로 aws eks로 배포하는 자동화 파이프라인 구축, 브랜치 전략 강화를 위해 merge된 브랜치 커밋 내역 기록 - 아래와 같은 mark down 형식으로 기록",
       ],
@@ -214,6 +219,60 @@ export const projects: ProjectType[] = [
       learnings: ["AWS S3를 통한 이미지 관리"],
       role: "프론트엔드 개발자",
       teamSize: 4,
+      images: [
+        {
+          isNull: true,
+        },
+        {
+          isNull: true,
+        },
+      ],
+    },
+    metadata: {
+      category: "web",
+      status: "completed",
+      priority: "low",
+      tags: ["todo", "vue", "firebase", "real-time"],
+    },
+  },
+  {
+    id: 5,
+    title: "공감블라인드 랜딩페이지",
+    description:
+      "커튼 블라인드 설치 서비스 랜딩페이지입니다. 기획부터 디자인 개발까지 전부 다 1인 개발로 진행하였습니다.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "VanilaExtract",
+      "Zustand",
+      "AWS",
+      "S3",
+      "EmailJS",
+      "Git Action",
+    ],
+    githubUrl: "비공개",
+    period: "2025.03 - 2025.05",
+    imageUrl: "/images/projectDetails/gonggambliind.png",
+    liveUrl: "https://construction.gonggamblind.com",
+    detail: {
+      overview:
+        "커튼 블라인드 설치 서비스 랜딩페이지입니다. 기획부터 디자인 개발까지 전부 다 1인 개발로 진행하였습니다.",
+      features: [
+        "S3를 통한 이미지 관리 - Cloud Front를 통한 캐싱 처리",
+        "EmailJS를 통한 문의사항 및 사진 전달",
+      ],
+      challenges: [
+        "사용자에 문의사항을 Email로 받는 과정에서 Text이외에 사진은 유료 서비스를 이용해야만 했던 문제",
+      ],
+      solutions: [
+        "사진을 S3로 먼저 업로드 후 S3 경로를 Email JS에 전달하여 사진을 볼 수 있도록 구조 변경",
+      ],
+      learnings: [
+        "AWS S3를 통한 이미지 관리",
+        "EmailJS를 통한 문의사항 및 사진 전달",
+      ],
+      role: "프론트엔드 개발자",
+      teamSize: 1,
       images: [
         {
           isNull: true,
