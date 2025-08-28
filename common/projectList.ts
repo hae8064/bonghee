@@ -73,6 +73,7 @@ export const projects: ProjectType[] = [
         "AWS를 통한 클라우드 배포 (ECS, EKS를 통해 배포), AWS DocumentDB를 활용하여 데이터 저장 및 관리",
         "WebSocket을 통한 대용량 이미지 업로드 시 완료 여부 Frontend에 소켓을 통해 완료 여부 전달 기능 구현",
         "AWS Lambda를 활용한 이미지 리사이징 기능 추가 (썸네일 이미지)",
+        "AWS Document DB 터널링을 활용하여 MongoDB 설계 및 최적화",
       ],
       challenges: [
         "대용량 의료 이미지(홀슬라이드)의 효율적인 로딩과 렌더링",
