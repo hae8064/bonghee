@@ -68,7 +68,7 @@ export const projects: ProjectType[] = [
       overview:
         "의료 AI 솔루션의 형태계측 데이터를 시각화·분석하는 웹 애플리케이션입니다. 대용량 어노테이션과 캐싱된 이미지를 효율적으로 관리하며, 클라우드 및 병원 내 On-Premise 환경 모두에서 구축할 수 있습니다. 또한, 2GB 이상의 대용량 이미지를 SQS 기반 큐 처리로 안정적으로 업로드하고, AI 모델과 연동하여 분석을 수행합니다.",
       features: [
-        "홀슬라이드 이미지 뷰어 (대용량 의료 이미지 처리) - 대용량 어노테이션들 약 수십만개의 데이터를 한번에 Fetch 하여 렌더링",
+        "2GB 이상 대용량 이미지를 안정적으로 처리하고, Motor(Async Driver) 기반으로 평균 응답 속도를 6.7배 개선. API 응답 지연/타임아웃 0건 → 안정성 확보.",
         "Redis를 활용하여 대용량 홀슬라이드 이미지를 캐시처리하여 사용성 개선",
         "AWS를 통한 클라우드 배포 (ECS, EKS를 통해 배포), AWS DocumentDB를 활용하여 데이터 저장 및 관리",
         "WebSocket을 통한 대용량 이미지 업로드 시 완료 여부 Frontend에 소켓을 통해 완료 여부 전달 기능 구현",
@@ -158,7 +158,7 @@ export const projects: ProjectType[] = [
       overview:
         "AIVIS 사내 홈페이지입니다. Next.js를 통해 SSR 방식으로 렌더링 하여 초기 로딩 속도 개선, 검색 엔진 최적화, AWS ECS + Git Action을 통한 자동화 배포 환경 구축 하였습니다.",
       features: [
-        "Next.js를 통해 SSR 방식으로 렌더링 하여 초기 로딩 속도 개선, 검색 엔진 최적화",
+        "초기 로딩 속도를 2.1초 → 0.8초로 단축, 검색 결과 노출률 개선. 기존 수동 배포(20~30분) → 무중단 자동 배포 5분 이내로 단축.",
         "AWS ECS + Git Action을 통한 자동화 배포 환경 구축",
         "Storybook을 통한 디자인 시스템 구축",
         "VanilaExtract를 통한 스타일링",
@@ -258,6 +258,7 @@ export const projects: ProjectType[] = [
       overview:
         "커튼 블라인드 설치 서비스 랜딩페이지입니다. 기획부터 디자인 개발까지 전부 다 1인 개발로 진행하였습니다.",
       features: [
+        "SEO 최적화 및 퍼포먼스 개선으로 네이버·구글 검색 결과 상위 노출 달성, 실제 고객 유입 건수 증가.",
         "S3를 통한 이미지 관리 - Cloud Front를 통한 캐싱 처리",
         "EmailJS를 통한 문의사항 및 사진 전달",
       ],
