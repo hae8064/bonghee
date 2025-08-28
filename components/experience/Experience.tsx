@@ -1,8 +1,24 @@
 import { educations } from "@/common/educationList";
 import { workExperiences } from "../../common/experienceList";
 import { motion, Variants } from "framer-motion";
+import { awards } from "@/common/awardList";
+import { useState } from "react";
+import AwardDetail from "./AwardDetail";
 
 const Experience = () => {
+  const [selectedAward, setSelectedAward] = useState<AwardType | null>(null);
+  const [isAwardModalOpen, setIsAwardModalOpen] = useState(false);
+
+  const openAwardModal = (award: AwardType) => {
+    setSelectedAward(award);
+    setIsAwardModalOpen(true);
+  };
+
+  const closeAwardModal = () => {
+    setIsAwardModalOpen(false);
+    setSelectedAward(null);
+  };
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -163,18 +179,42 @@ const Experience = () => {
                     </span>
                   </div>
 
-                  {/* 설명 */}
-                  {education.description && (
-                    <p className="text-white/80 text-xs sm:text-sm">
-                      {education.description}
-                    </p>
-                  )}
+                  <div className="flex flex-col gap-2">
+                    {/* 설명 */}
+                    {education.description && (
+                      <p className="text-white/80 text-xs sm:text-sm">
+                        {education.description}
+                      </p>
+                    )}
+
+                    {/* 수상이력 확인 버튼 (한국공학대학교인 경우에만) */}
+                    {education.school === "한국공학대학교" &&
+                      awards.length > 0 && (
+                        <motion.button
+                          onClick={() => openAwardModal(awards[0])}
+                          className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded text-sm hover:bg-blue-500/30 transition-colors border border-blue-500/30 hover:scale-105 self-start"
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          🏆 수상이력 확인하기
+                        </motion.button>
+                      )}
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* 수상이력 상세 모달 */}
+      {selectedAward && (
+        <AwardDetail
+          award={selectedAward}
+          isOpen={isAwardModalOpen}
+          onClose={closeAwardModal}
+        />
+      )}
     </div>
   );
 };
