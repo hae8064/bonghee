@@ -9,12 +9,8 @@ export const awards: AwardType[] = [
     category: "졸업작품 2등",
     images: [
       {
-        url: "/images/award1.jpg", // 수상장 사진
-        alt: "졸업작품 우수상 상장",
-      },
-      {
-        url: "/images/project1.jpg", // 졸업작품 스크린샷
-        alt: "졸업작품 결과물",
+        url: "/images/award.jpg", // 전시 사진
+        alt: "졸업작품 전시 사진",
       },
     ],
   },

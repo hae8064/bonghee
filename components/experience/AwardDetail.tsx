@@ -182,7 +182,7 @@ const AwardDetail = ({ award, isOpen, onClose }: AwardDetailProps) => {
                   <h3 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">
                     관련 이미지
                   </h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
                     {award.images.map((image, index) => (
                       <motion.div
                         key={index}
@@ -200,7 +200,7 @@ const AwardDetail = ({ award, isOpen, onClose }: AwardDetailProps) => {
                           src={image.url}
                           alt={image.alt}
                           fill
-                          className="object-cover hover:scale-105 transition-transform duration-200"
+                          className="object-contain hover:scale-105 transition-transform duration-200"
                           sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 400px"
                         />
                       </motion.div>
