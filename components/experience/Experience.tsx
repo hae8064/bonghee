@@ -4,6 +4,7 @@ import { motion, Variants } from "framer-motion";
 import { awards } from "@/common/awardList";
 import { useState } from "react";
 import AwardDetail from "./AwardDetail";
+import { AwardType } from "@/types/awardType";
 
 const Experience = () => {
   const [selectedAward, setSelectedAward] = useState<AwardType | null>(null);

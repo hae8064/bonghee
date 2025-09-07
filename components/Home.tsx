@@ -5,6 +5,7 @@ import Main from "./Main";
 import AboutMe from "./aboutMe/AboutMe";
 import Projects from "./projects/Projects";
 import Experience from "./experience/Experience";
+import PDFDownloadButton from "./PDFDownloadButton";
 const Home = () => {
   return (
     <div className="flex flex-col w-full h-screen relative">
@@ -30,6 +31,9 @@ const Home = () => {
           <Projects />
         </div>
       </div>
+
+      {/* PDF 다운로드 버튼 */}
+      <PDFDownloadButton />
     </div>
   );
 };

@@ -1,0 +1,201 @@
+/* PDF 인쇄용 스타일 */
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* 페이지 나누기 */
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* 섹션 간격 조정 */
+  .section {
+    margin-bottom: 20pt;
+  }
+
+  /* 헤더 스타일 */
+  .header {
+    background: #f8f9fa !important;
+    color: black !important;
+    padding: 25pt;
+    margin-bottom: 25pt;
+    border: 2pt solid #dee2e6;
+    border-radius: 8pt;
+  }
+
+  /* 프로젝트 카드 스타일 */
+  .project-card {
+    border: 1pt solid #dee2e6 !important;
+    background: white !important;
+    margin-bottom: 20pt;
+    padding: 20pt;
+    break-inside: avoid;
+    border-radius: 8pt;
+    box-shadow: 0 2pt 4pt rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* 기술 스택 태그 */
+  .tech-tag {
+    background: #e9ecef !important;
+    color: black !important;
+    border: 1pt solid #ced4da !important;
+    padding: 3pt 8pt;
+    margin: 2pt;
+    font-size: 9pt;
+    border-radius: 4pt;
+  }
+
+  /* 그라데이션 배경 제거 */
+  .bg-gradient-to-r,
+  .bg-gradient-to-br {
+    background: #f8f9fa !important;
+  }
+
+  /* 색상 배경들 */
+  .bg-blue-50,
+  .bg-green-50,
+  .bg-purple-50,
+  .bg-orange-50,
+  .bg-red-50,
+  .bg-yellow-50,
+  .bg-indigo-50,
+  .bg-teal-50 {
+    background: #f8f9fa !important;
+    border: 1pt solid #dee2e6 !important;
+  }
+
+  /* 텍스트 색상 통일 */
+  .text-blue-800,
+  .text-green-800,
+  .text-purple-800,
+  .text-orange-800,
+  .text-red-800,
+  .text-yellow-800,
+  .text-indigo-800,
+  .text-teal-800 {
+    color: black !important;
+  }
+
+  .text-blue-600,
+  .text-green-600,
+  .text-purple-600,
+  .text-orange-600,
+  .text-red-600,
+  .text-green-600,
+  .text-indigo-600,
+  .text-teal-600 {
+    color: #333 !important;
+  }
+
+  /* 이미지 최적화 */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  /* 링크 스타일 */
+  a {
+    color: #0066cc !important;
+    text-decoration: underline !important;
+  }
+
+  /* 테이블 스타일 */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 15pt;
+  }
+
+  th,
+  td {
+    border: 1pt solid #dee2e6;
+    padding: 8pt;
+    text-align: left;
+  }
+
+  th {
+    background: #f8f9fa !important;
+    font-weight: bold;
+  }
+
+  /* 목록 스타일 */
+  ul,
+  ol {
+    margin: 10pt 0;
+    padding-left: 20pt;
+  }
+
+  li {
+    margin-bottom: 5pt;
+  }
+
+  /* 제목 스타일 */
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 15pt;
+    color: black !important;
+  }
+
+  h2 {
+    font-size: 18pt;
+    margin-bottom: 12pt;
+    color: black !important;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-bottom: 10pt;
+    color: black !important;
+  }
+
+  h4 {
+    font-size: 12pt;
+    margin-bottom: 8pt;
+    color: black !important;
+  }
+
+  h5 {
+    font-size: 11pt;
+    margin-bottom: 6pt;
+    color: black !important;
+  }
+
+  /* 텍스트 스타일 */
+  p {
+    margin-bottom: 8pt;
+    color: black !important;
+  }
+
+  /* 배경색 제거 */
+  * {
+    background: transparent !important;
+    color: black !important;
+  }
+
+  /* 그라데이션 제거 */
+  .gradient-bg {
+    background: #f8f9fa !important;
+  }
+
+  /* 그림자 제거 */
+  .shadow {
+    box-shadow: none !important;
+  }
+
+  /* 애니메이션 제거 */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
+import { AwardType } from "@/types/awardType";
 
 interface AwardDetailProps {
   award: AwardType;
