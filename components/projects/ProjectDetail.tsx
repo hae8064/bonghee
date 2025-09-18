@@ -128,7 +128,7 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
                 </div>
                 <motion.button
                   onClick={onClose}
-                  className="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full"
+                  className="text-white/60 hover:text-white transition-colors p-2 hover:bg-white/10 rounded-full cursor-pointer"
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.95 }}
                   initial={{ opacity: 0, rotate: -90 }}
@@ -535,7 +535,7 @@ const ProjectDetail = ({ project, isOpen, onClose }: ProjectDetailProps) => {
             {/* 닫기 버튼 */}
             <button
               onClick={closeImageModal}
-              className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors text-sm sm:text-base"
+              className="absolute top-2 sm:top-4 right-2 sm:right-4 w-8 h-8 sm:w-10 sm:h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center text-white transition-colors text-sm sm:text-base cursor-pointer"
             >
               ✕
             </button>

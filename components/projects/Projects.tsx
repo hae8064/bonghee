@@ -79,7 +79,7 @@ const Projects = () => {
             {projects.map((project: ProjectType) => (
               <motion.div
                 key={project.id}
-                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
+                className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10 cursor-pointer"
                 variants={itemVariants}
                 whileHover={{
                   y: -5,
@@ -87,6 +87,7 @@ const Projects = () => {
                   transition: { duration: 0.2 },
                 }}
                 whileTap={{ scale: 0.98 }}
+                onClick={() => handleProjectClick(project)}
               >
                 {/* 프로젝트 헤더 */}
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 space-y-2 sm:space-y-0">
