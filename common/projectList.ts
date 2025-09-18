@@ -8,7 +8,7 @@ export const projects: ProjectType[] = [
       "Next.js와 TypeScript를 사용하여 만든 개인 포트폴리오 웹사이트입니다. 반응형 디자인과 모던한 UI/UX를 적용했습니다.",
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/hae8064/bonghee",
-    liveUrl: "https://hae8064.github.io/bonghee/",
+    liveUrl: "https://bonghee.vercel.app/",
     period: "2025.08 - 2025.08",
     imageUrl: "/images/bongheePortPolio.png",
     detail: {
