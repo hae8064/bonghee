@@ -4,33 +4,25 @@ const frontendTech = [
   "React",
   "Next.js",
   "Vue.js",
-  "JavaScript",
   "TypeScript",
   "Styled Components",
   "SCSS",
   "Vanilla Extract",
   "Tailwind CSS",
-  "Monorepo",
-  "Redux",
   "Recoil",
   "Zustand",
-  "React Query",
+  "Tanstack Query",
   "Framer Motion",
-  "Storybook",
 ];
 
 const backendTech = [
-  "Express",
+  "Spring",
   "Nest.js",
   "FastAPI",
-  "Flask",
   "PostgreSQL",
   "MongoDB",
-  "Redis",
   "Docker",
   "AWS",
-  "Vercel",
-  "Jest",
 ];
 
 const TechStack = () => {

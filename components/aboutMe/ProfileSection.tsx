@@ -12,7 +12,7 @@ const ProfileSection = () => {
         <div className="relative w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden border-4 border-white/20 shadow-2xl transition-all duration-300 group-hover:border-white/40 group-hover:shadow-2xl group-hover:scale-105">
           <div className="w-full h-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center">
             <Image
-              src="/images/bonghee.jpg"
+              src="/images/bonghee-cropped.png"
               alt="profile"
               width={256}
               height={256}

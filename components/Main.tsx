@@ -62,7 +62,7 @@ const Main = () => {
           window.removeEventListener("scroll", handleScroll);
         }, 1000);
       }
-    }, 300);
+    }, 150);
 
     return () => {
       clearInterval(typingInterval);

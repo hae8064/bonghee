@@ -4,6 +4,8 @@ import { motion, Variants } from "framer-motion";
 import { awards } from "@/common/awardList";
 import { useState } from "react";
 import AwardDetail from "./AwardDetail";
+import { certifications } from "@/common/certificationList";
+import { CertificationType } from "@/types/certificationType";
 
 const Experience = () => {
   const [selectedAward, setSelectedAward] = useState<AwardType | null>(null);
@@ -69,7 +71,7 @@ const Experience = () => {
           className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 sm:mb-8 drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] text-center"
           variants={itemVariants}
         >
-          Career & Education
+          Experience
         </motion.h2>
 
         <motion.div
@@ -163,7 +165,11 @@ const Experience = () => {
                     transition: { duration: 0.2 },
                   }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={() => openAwardModal(awards[0])}
+                  onClick={() => {
+                    if (education.id === 0) {
+                      openAwardModal(awards[0]);
+                    }
+                  }}
                 >
                   {/* 학교 정보 */}
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 sm:mb-4 space-y-2 sm:space-y-0">
@@ -203,10 +209,71 @@ const Experience = () => {
                   </div>
                 </motion.div>
               ))}
+
+              <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">
+                Certification
+              </h3>
+
+              {certifications.map((certification: CertificationType) => (
+                <motion.div
+                  key={certification.id}
+                  className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10 cursor-pointer"
+                  variants={cardVariants}
+                >
+                  <div>
+                    <h4 className="text-lg sm:text-xl font-semibold text-white">
+                      {certification.name}
+                    </h4>
+                  </div>
+
+                  <p className="text-blue-400 text-sm sm:text-base mb-2">
+                    {certification.issuer}
+                  </p>
+                  <span className="text-xs sm:text-sm text-white/60 bg-white/10 px-2 sm:px-3 py-1 rounded self-start">
+                    {certification.period}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Certification 섹션 추가 - 전체 너비로 배치 */}
+      {/* <motion.div className="space-y-4 sm:space-y-6" variants={itemVariants}>
+        <h3 className="text-xl sm:text-2xl font-semibold text-white mb-4 sm:mb-6">
+          Certification
+        </h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {certifications.map((certification: CertificationType) => (
+            <motion.div
+              key={certification.id}
+              className="bg-white/5 backdrop-blur-sm rounded-lg p-4 sm:p-6 border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
+              variants={cardVariants}
+              whileHover={{
+                y: -5,
+                scale: 1.02,
+                transition: { duration: 0.2 },
+              }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <div className="flex flex-col justify-between h-full">
+                <div>
+                  <h4 className="text-lg sm:text-xl font-semibold text-white mb-2">
+                    {certification.name}
+                  </h4>
+                  <p className="text-blue-400 text-sm sm:text-base mb-2">
+                    {certification.issuer}
+                  </p>
+                </div>
+                <span className="text-xs sm:text-sm text-white/60 bg-white/10 px-2 sm:px-3 py-1 rounded self-start">
+                  {certification.period}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </motion.div> */}
 
       {/* 수상이력 상세 모달 */}
       {selectedAward && (
