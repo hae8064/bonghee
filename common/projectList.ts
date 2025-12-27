@@ -47,9 +47,10 @@ export const projects: ProjectType[] = [
     id: 2,
     title: "AIVIS 형태계측 뷰어",
     description:
-      "AIVIS 사내 솔루션 형태계측 뷰어입니다. Next.js와 FastAPI를 사용하여 개발했습니다. 대용량 크기 홀슬라이드 이미지 뷰어, 형태계측 데이터 시각화, 형태계측 데이터 분석 기능을 제공합니다.",
+      "AIVIS 사내 솔루션 형태계측 서비스입니다. Next.js와 Spring을 사용하여 개발했습니다. 약 2GB정도의 대용량 크기 홀슬라이드 이미지 업로드, 타일링, 수십만개의 형태계측 데이터 JSON 시각화, AI모델 실행 파이프라인을 구축하였습니다.",
     technologies: [
       "FastAPI",
+      "Spring",
       "MongoDB",
       "AWS",
       "Motor",
