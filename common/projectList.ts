@@ -3,6 +3,44 @@ import { ProjectType } from "@/types/projectType";
 export const projects: ProjectType[] = [
   {
     id: 1,
+    title: "경제 부동산 뉴스 요약 구독 서비스",
+    description:
+      "네이버 뉴스 API로 수집한 기사 본문을 크롤링하여 Gemini API(LLM)기반 자동 요약 서비스 입니다.",
+    technologies: [
+      "NestJS",
+      "TypeScript",
+      "PostgreSQL",
+      "Docker",
+      "AWS EC2",
+      "Gemini API",
+    ],
+    githubUrl: "https://github.com/hae8064/nest-news-api.git",
+    period: "2025.12 - 2026.01",
+    imageUrl: "/images/projectDetails/nest-news-api.png",
+    detail: {
+      overview:
+        "네이버 뉴스 API로 수집한 기사 본문을 크롤링하여 Gemini API(LLM)기반 요약 후 Cron 기반 배치 시스템을 통해 매일 오전 7시 구독자 대상 뉴스 요약 메일 자동 발송",
+      features: [],
+      challenges: [],
+      solutions: [],
+      learnings: [
+        "NestJS, PostgreSQL을 활용하여 API 서버 구축",
+        "크롤링을 통해 네이버 뉴스 API로 수집한 기사 본문을 크롤링하여 요약",
+        "Gemini API를 활용하여 자동 요약 서비스 구현",
+        "Cron 기반 배치 시스템을 통해 매일 오전 7시 구독자 대상 뉴스 요약 메일 자동 발송",
+      ],
+      role: "백엔드 개발자",
+      teamSize: 1,
+    },
+    metadata: {
+      category: "ai",
+      status: "completed",
+      priority: "high",
+      tags: ["news", "summary", "cron", "batch", "email", "gemini"],
+    },
+  },
+  {
+    id: 2,
     title: "이봉희 포트폴리오 웹사이트",
     description:
       "Next.js와 TypeScript를 사용하여 만든 개인 포트폴리오 웹사이트입니다. 반응형 디자인과 모던한 UI/UX를 적용했습니다.",
@@ -44,7 +82,7 @@ export const projects: ProjectType[] = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: "AIVIS 형태계측 뷰어",
     description:
       "AIVIS 사내 솔루션 형태계측 서비스입니다. Next.js와 Spring을 사용하여 개발했습니다. 약 2GB정도의 대용량 크기 홀슬라이드 이미지 업로드, 타일링, 수십만개의 형태계측 데이터 JSON 시각화, AI모델 실행 파이프라인을 구축하였습니다.",
@@ -140,7 +178,7 @@ export const projects: ProjectType[] = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: "AIVIS 홈페이지",
     description:
       "AIVIS 사내 홈페이지입니다. Next.js를 통해 SSR 방식으로 렌더링 하여 초기 로딩 속도 개선, 검색 엔진 최적화, AWS ECS + Git Action을 통한 자동화 배포 환경 구축 하였습니다.",
@@ -192,7 +230,7 @@ export const projects: ProjectType[] = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: "중고차 판매 및 매물 등록 웹 사이트",
     description:
       "외주를 통해 프론트엔드 개발을 맡아 중고차 판매 및 매물 등록 웹 사이트입니다. 중고차 판매 및 매물 등록 기능을 제공합니다.",
@@ -207,7 +245,6 @@ export const projects: ProjectType[] = [
     githubUrl: "비공개",
     period: "2024.04 - 2024.07",
     imageUrl: "/images/projectDetails/usedCar.png",
-    liveUrl: "https://autostockglobal.com/",
     detail: {
       overview:
         "중고차 판매 및 매물 등록 웹 사이트입니다. 중고차 판매 및 매물 등록 기능을 제공합니다. 외주를 통해 React를 사용하여 개발하였고, 현재도 서비스 중입니다.",
@@ -238,7 +275,7 @@ export const projects: ProjectType[] = [
     },
   },
   {
-    id: 5,
+    id: 6,
     title: "공감블라인드 랜딩페이지",
     description:
       "커튼 블라인드 설치 서비스 랜딩페이지입니다. 기획부터 디자인 개발까지 전부 다 1인 개발로 진행하였습니다.",
