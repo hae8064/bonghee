@@ -135,6 +135,7 @@ const Projects = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
                       className="px-3 sm:px-4 py-2 bg-white/10 text-white/90 rounded text-xs sm:text-sm hover:bg-white/20 transition-colors border border-white/20"
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
@@ -142,18 +143,20 @@ const Projects = () => {
                       GitHub
                     </motion.a>
                   )}
-                  {project.liveUrl !== "비공개" && (
-                    <motion.a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3 sm:px-4 py-2 bg-blue-500/20 text-blue-300 rounded text-xs sm:text-sm hover:bg-blue-500/30 transition-colors border border-blue-500/30"
-                      whileHover={{ scale: 1.05, y: -2 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      웹사이트 보기
-                    </motion.a>
-                  )}
+                  {project.liveUrl !== "비공개" &&
+                    project.liveUrl !== undefined && (
+                      <motion.a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="px-3 sm:px-4 py-2 bg-blue-500/20 text-blue-300 rounded text-xs sm:text-sm hover:bg-blue-500/30 transition-colors border border-blue-500/30"
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                      >
+                        웹사이트 보기
+                      </motion.a>
+                    )}
                 </div>
               </motion.div>
             ))}
