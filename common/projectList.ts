@@ -20,15 +20,15 @@ export const projects: ProjectType[] = [
     detail: {
       overview:
         "네이버 뉴스 API로 수집한 기사 본문을 크롤링하여 Gemini API(LLM)기반 요약 후 Cron 기반 배치 시스템을 통해 매일 오전 7시 구독자 대상 뉴스 요약 메일 자동 발송",
-      features: [],
-      challenges: [],
-      solutions: [],
-      learnings: [
+      features: [
         "NestJS, PostgreSQL을 활용하여 API 서버 구축",
         "크롤링을 통해 네이버 뉴스 API로 수집한 기사 본문을 크롤링하여 요약",
         "Gemini API를 활용하여 자동 요약 서비스 구현",
         "Cron 기반 배치 시스템을 통해 매일 오전 7시 구독자 대상 뉴스 요약 메일 자동 발송",
       ],
+      challenges: [],
+      solutions: [],
+      learnings: [],
       role: "백엔드 개발자",
       teamSize: 1,
     },
