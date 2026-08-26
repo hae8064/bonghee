@@ -188,6 +188,15 @@ const Main = () => {
               damping: 15,
             }}
           >
+            <motion.p
+              className="text-blue-400 text-xs sm:text-sm md:text-base lg:text-lg font-medium tracking-widest uppercase mb-3 sm:mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              Fullstack Developer & Team Lead
+            </motion.p>
+
             <motion.h2
               className="text-white text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)] leading-tight"
               initial={{ opacity: 0, y: 30 }}
@@ -218,12 +227,12 @@ const Main = () => {
             </motion.h2>
 
             <motion.p
-              className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 sm:mt-5 md:mt-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] px-2 leading-relaxed"
+              className="text-white/70 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mt-4 sm:mt-5 md:mt-6 drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] px-2 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9, duration: 0.8 }}
             >
-              프론트엔드부터 백엔드까지, 사용자 중심의 솔루션을 만드는 개발자
+              프론트엔드부터 백엔드, DevOps까지 — 팀과 함께 성장하는 개발자
             </motion.p>
 
             {/* 추가 장식 요소 */}

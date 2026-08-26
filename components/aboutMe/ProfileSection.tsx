@@ -32,16 +32,18 @@ const ProfileSection = () => {
         <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2 hover:text-blue-400 transition-colors">
           이봉희
         </h3>
-        <p className="text-blue-400 text-sm sm:text-base md:text-lg mb-2">
-          3년차 풀스택 개발자
+        <p className="text-blue-400 text-sm sm:text-base md:text-lg mb-1">
+          4년차 풀스택 개발자
+        </p>
+        <p className="text-white/60 text-xs sm:text-sm mb-2">
+          AIVIS 솔루션 서비스팀 팀장
         </p>
 
         {/* 상태 표시 */}
         <div className="flex items-center justify-center lg:justify-start gap-2 mt-3">
-          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-400 rounded-full animate-pulse"></div>
-          {/* Available for work 대체 */}
-          <span className="text-green-400 text-xs sm:text-sm">
-            Looking for new challenges
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-pulse"></div>
+          <span className="text-blue-400 text-xs sm:text-sm">
+            Building scalable solutions
           </span>
         </div>
       </div>

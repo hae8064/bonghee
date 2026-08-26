@@ -21,27 +21,34 @@ const backendTech = [
   "FastAPI",
   "PostgreSQL",
   "MongoDB",
+  "Redis",
+];
+
+const devopsTech = [
   "Docker",
-  "AWS",
+  "AWS ECS/EKS",
+  "AWS Lambda",
+  "AWS SQS",
+  "Git Action",
+  "Storybook",
 ];
 
 const TechStack = () => {
   return (
     <div className="space-y-4 sm:space-y-6">
       <h4 className="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">
-        기술 스택
+        Tech Stack
       </h4>
 
-      {/* 프론트엔드 */}
       <div>
-        <h5 className="text-base sm:text-lg font-medium text-white/90 mb-2 sm:mb-3">
+        <h5 className="text-base sm:text-lg font-medium text-blue-400 mb-2 sm:mb-3">
           Frontend
         </h5>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {frontendTech.map((tech) => (
             <span
               key={tech}
-              className="px-2 sm:px-3 py-1 bg-white/10 text-white/90 rounded-full text-xs sm:text-sm border border-white/20 hover:bg-white/20 transition-colors"
+              className="px-2 sm:px-3 py-1 bg-blue-500/10 text-blue-300 rounded-full text-xs sm:text-sm border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
             >
               {tech}
             </span>
@@ -49,16 +56,31 @@ const TechStack = () => {
         </div>
       </div>
 
-      {/* 백엔드 */}
       <div>
-        <h5 className="text-base sm:text-lg font-medium text-white/90 mb-2 sm:mb-3">
+        <h5 className="text-base sm:text-lg font-medium text-emerald-400 mb-2 sm:mb-3">
           Backend
         </h5>
         <div className="flex flex-wrap gap-1.5 sm:gap-2">
           {backendTech.map((tech) => (
             <span
               key={tech}
-              className="px-2 sm:px-3 py-1 bg-white/10 text-white/90 rounded-full text-xs sm:text-sm border border-white/20 hover:bg-white/20 transition-colors"
+              className="px-2 sm:px-3 py-1 bg-emerald-500/10 text-emerald-300 rounded-full text-xs sm:text-sm border border-emerald-500/20 hover:bg-emerald-500/20 transition-colors"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <h5 className="text-base sm:text-lg font-medium text-amber-400 mb-2 sm:mb-3">
+          DevOps & Infra
+        </h5>
+        <div className="flex flex-wrap gap-1.5 sm:gap-2">
+          {devopsTech.map((tech) => (
+            <span
+              key={tech}
+              className="px-2 sm:px-3 py-1 bg-amber-500/10 text-amber-300 rounded-full text-xs sm:text-sm border border-amber-500/20 hover:bg-amber-500/20 transition-colors"
             >
               {tech}
             </span>
