@@ -19,7 +19,7 @@ describe("case detail page", () => {
   beforeEach(() => mockReducedMotion(true));
 
   it("pre-renders exactly the four cases", async () => {
-    expect((await generateStaticParams()).map((p) => p.slug)).toEqual(["qanti", "sso", "sectra-grid", "tile-serving"]);
+    expect((await generateStaticParams()).map((p) => p.slug)).toEqual(["qanti", "sso", "annotation-grid", "tile-serving"]);
     expect(dynamicParams).toBe(false);
   });
 
@@ -35,7 +35,7 @@ describe("case detail page", () => {
     unmount();
     const r = await renderSlug("tile-serving");
     expect(r.container.querySelector("[data-next]")).toBeNull();
-    expect(r.container.querySelector("[data-prev]")?.getAttribute("href")).toBe("/cases/sectra-grid");
+    expect(r.container.querySelector("[data-prev]")?.getAttribute("href")).toBe("/cases/annotation-grid");
   });
 
   it("unknown slug calls notFound", async () => {

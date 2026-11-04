@@ -43,7 +43,7 @@ describe("case diagrams", () => {
   });
 
   it("caseDiagram maps every slug", () => {
-    for (const s of ["qanti", "sso", "sectra-grid", "tile-serving"] as const) {
+    for (const s of ["qanti", "sso", "annotation-grid", "tile-serving"] as const) {
       const { unmount } = render(caseDiagram(s, "preview"));
       unmount();
     }

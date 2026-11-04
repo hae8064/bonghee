@@ -3,7 +3,7 @@
 백엔드 / 클라우드 엔지니어 이봉희의 포트폴리오 사이트입니다. 배포: https://bonghee.vercel.app
 
 - 첫 화면: three.js(@react-three/fiber)로 그린 서비스 아키텍처, 요청이 노드 사이를 흐름
-- 설계 사례 4개(`/cases/*`): Qanti 배포 구조(Cloud/폐쇄망 토글), 병원 미들웨어 SSO, Sectra Grid-Split, 동적 타일 서빙. 흐름도는 anime.js + SVG
+- 설계 사례 4개(`/cases/*`): Qanti 배포 구조(Cloud/폐쇄망 토글), 병원 미들웨어 SSO, Annotation 결과 Grid-Split, 동적 타일 서빙. 흐름도는 anime.js + SVG
 - `prefers-reduced-motion`이면 애니메이션 없이 완성된 그림을 보여 줍니다
 
 ## 구조

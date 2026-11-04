@@ -56,16 +56,16 @@ export const cases: CaseStudy[] = [
     stack: ["JWT (HS256)", "Spring Boot", "FastAPI", "Nginx"],
   },
   {
-    slug: "sectra-grid",
+    slug: "annotation-grid",
     index: "03",
-    title: "Sectra 결과 JSON Grid-Split",
-    summary: "172MB에서 1.9GB에 이르는 결과 JSON을 10×10 좌표 그리드로 나눠, 화면에 필요한 영역만 읽게 바꿨습니다.",
+    title: "Annotation 결과 JSON Grid-Split",
+    summary: "172MB에서 1.9GB에 이르는 Annotation 결과 JSON을 10×10 좌표 그리드로 나눠, 화면에 필요한 영역만 읽게 바꿨습니다.",
     problem: [
-      "Sectra 뷰어로 보내는 분석 결과 content JSON이 172MB에서 1.9GB였습니다.",
+      "외부 뷰어로 보내는 Annotation 결과(content JSON)가 172MB에서 1.9GB였습니다.",
       "첫 렌더 때마다 파일 전체를 읽고 파싱해야 했습니다.",
     ],
     decisions: [
-      { decision: "업로드 시점에 MVT → Sectra 형식 사전 변환", risk: "뷰어가 hook을 부를 때 변환하면 그 시간이 그대로 첫 렌더 대기 시간이 됩니다." },
+      { decision: "업로드 시점에 MVT → Annotation 형식 사전 변환", risk: "뷰어가 hook을 부를 때 변환하면 그 시간이 그대로 첫 렌더 대기 시간이 됩니다." },
       { decision: "좌표를 10×10 coarse grid로 나눈 분할 파일", risk: "ROI는 슬라이드 일부인데 전체 파일을 읽고 있었습니다. 걸치는 칸만 읽으면, 예를 들어 172MB 중 12개 파일 20MB만 로드합니다." },
       { decision: "로드 후 shapely prepared로 ROI polygon 내부만 정밀 필터", risk: "칸 단위는 대략적이라 ROI 밖 cell이 섞입니다. polygon을 미리 준비해 반복 판정 비용을 줄였습니다." },
       { decision: "orjson 파싱", risk: "기본 json 모듈 파싱이 병목이었습니다." },
@@ -73,7 +73,7 @@ export const cases: CaseStudy[] = [
     ],
     results: ["172MB · 243,717 cells 기준 첫 렌더 1,618ms → 607ms (약 2.7배)"],
     limits: [
-      "세로로 긴 이미지는 Sectra 좌표의 Y가 1.0을 넘어, 그리드 인덱스를 clamping해야 합니다.",
+      "세로로 긴 이미지는 Annotation 좌표의 Y가 1.0을 넘어, 그리드 인덱스를 clamping해야 합니다.",
       "메모리 캐시에 이미 있을 때는 차이가 없습니다.",
       "기존 슬라이드 878개는 분할 파일로 다시 변환해야 했습니다.",
     ],

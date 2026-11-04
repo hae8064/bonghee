@@ -60,7 +60,7 @@ export function GridSplit({ variant }: { variant: "preview" | "full" }) {
     }
 
   return (
-    <TerminalFrame title="sectra — grid-split content loading">
+    <TerminalFrame title="annotation — grid-split content loading">
       <div ref={ref}>
         {narrow && (
           <p className="mb-2 font-mono text-[11.5px] leading-relaxed">

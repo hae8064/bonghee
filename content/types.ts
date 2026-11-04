@@ -12,7 +12,7 @@ export type Metric = {
 export type ExperienceGroup = { title: string; bullets: string[] };
 export type Experience = { company: string; role: string; period: string; groups: ExperienceGroup[] };
 
-export type CaseSlug = "qanti" | "sso" | "sectra-grid" | "tile-serving";
+export type CaseSlug = "qanti" | "sso" | "annotation-grid" | "tile-serving";
 export type DecisionRow = { decision: string; risk: string };
 export type CaseStudy = {
   slug: CaseSlug;

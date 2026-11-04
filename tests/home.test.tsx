@@ -21,7 +21,7 @@ describe("home page", () => {
 
   it("links all four case pages", () => {
     const { container } = render(<Page />);
-    for (const s of ["qanti", "sso", "sectra-grid", "tile-serving"])
+    for (const s of ["qanti", "sso", "annotation-grid", "tile-serving"])
       expect(container.querySelector(`a[href="/cases/${s}"]`)).not.toBeNull();
   });
 

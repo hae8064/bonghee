@@ -19,7 +19,7 @@ export const experience: Experience = {
         "PyMongo를 Motor로 전환, 평균 응답 1.78초에서 0.26초로",
         "Aggregation Pipeline 재설계, Compound Index, N+1 쿼리 제거",
         "동적 타일 서빙 p95 1008ms에서 97ms로, SDK 호출은 Rust 워커로 격리",
-        "Sectra 결과 JSON을 10×10 좌표 그리드로 분할, 첫 렌더 1.6초에서 0.6초로",
+        "Annotation 결과 JSON을 10×10 좌표 그리드로 분할, 첫 렌더 1.6초에서 0.6초로",
       ],
     },
     {

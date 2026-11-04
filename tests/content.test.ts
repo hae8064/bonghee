@@ -21,15 +21,22 @@ describe("content rules", () => {
     expect(all).not.toContain("혼자");
   });
   it("cases in order", () =>
-    expect(cases.map((c) => c.slug)).toEqual(["qanti", "sso", "sectra-grid", "tile-serving"]));
+    expect(cases.map((c) => c.slug)).toEqual(["qanti", "sso", "annotation-grid", "tile-serving"]));
   it("tile case states Rust is isolation not speed", () => {
     const t = JSON.stringify(getCase("tile-serving"));
     expect(t).toContain("99");
     expect(t).toContain("97");
     expect(t).toContain("격리");
   });
+  it("case 03 is framed as annotation results, not a vendor", () => {
+    const a = JSON.stringify(getCase("annotation-grid"));
+    expect(a).toContain("Annotation");
+    expect(a).not.toContain("Sectra");
+    expect(JSON.stringify(metrics)).not.toContain("Sectra");
+    expect(experience.groups[1].bullets.join(" ")).not.toContain("Sectra");
+  });
   it("sectra has measured numbers only", () => {
-    const s = JSON.stringify(getCase("sectra-grid"));
+    const s = JSON.stringify(getCase("annotation-grid"));
     expect(s).toContain("1,618");
     expect(s).toContain("607");
     expect(s).not.toMatch(/1\.9GB[^"]*(초|ms)/);

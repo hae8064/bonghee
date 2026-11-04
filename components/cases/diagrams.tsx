@@ -10,7 +10,7 @@ export function caseDiagram(slug: CaseSlug, variant: "preview" | "full") {
       return <QantiPipeline variant={variant} />;
     case "sso":
       return <SsoSequence variant={variant} />;
-    case "sectra-grid":
+    case "annotation-grid":
       return <GridSplit variant={variant} />;
     case "tile-serving":
       return <TileServing variant={variant} />;

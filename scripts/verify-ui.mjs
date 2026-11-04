@@ -4,7 +4,7 @@ import { mkdirSync } from "node:fs";
 
 const BASE = process.env.BASE_URL ?? "http://localhost:3000";
 const OUT = process.argv[2] ?? `${process.env.HOME}/leo/스크린샷/bonghee`;
-const PAGES = ["/", "/cases/qanti", "/cases/sso", "/cases/sectra-grid", "/cases/tile-serving"];
+const PAGES = ["/", "/cases/qanti", "/cases/sso", "/cases/annotation-grid", "/cases/tile-serving"];
 const WIDTHS = [320, 360, 390, 768, 1280];
 mkdirSync(OUT, { recursive: true });
 

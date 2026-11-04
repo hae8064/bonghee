@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { CaseStudy } from "@/content/types";
 import { caseDiagram } from "./diagrams";
+import { QantiTopology } from "./QantiTopology";
 
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -38,6 +39,12 @@ export function CaseDetail({ c, prev, next }: { c: CaseStudy; prev?: CaseStudy; 
       </ul>
 
       <div className="mt-10">{caseDiagram(c.slug, "full")}</div>
+
+      {c.slug === "qanti" && (
+        <Block title="DEPLOYMENT · 폐쇄망 배포 구성도 (병원 한 곳 기준, 기관 정보 비식별)">
+          <QantiTopology />
+        </Block>
+      )}
 
       <Block title="PROBLEM · 문제"><List items={c.problem} /></Block>
 
