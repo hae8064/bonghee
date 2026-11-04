@@ -7,20 +7,6 @@ import { sceneEdges, sceneNodes } from "./scene-graph";
 
 type Props = { active: boolean; reduced: boolean; compact: boolean; pointer: React.RefObject<{ x: number; y: number }> };
 
-function makeLabel(text: string) {
-  const c = document.createElement("canvas");
-  c.width = 256;
-  c.height = 64;
-  const g = c.getContext("2d")!;
-  g.fillStyle = "#9DB8E8";
-  g.font = "600 26px ui-monospace, monospace";
-  g.textAlign = "center";
-  g.fillText(text, 128, 40);
-  const t = new THREE.CanvasTexture(c);
-  t.colorSpace = THREE.SRGBColorSpace;
-  return t;
-}
-
 function Graph({ reduced, compact, pointer }: Omit<Props, "active">) {
   const group = useRef<THREE.Group>(null);
   const nodeRefs = useRef<(THREE.Mesh | null)[]>([]);
@@ -36,7 +22,6 @@ function Graph({ reduced, compact, pointer }: Omit<Props, "active">) {
     g.setAttribute("position", new THREE.Float32BufferAttribute(pts, 3));
     return g;
   }, [edges]);
-  const labels = useMemo(() => (compact ? [] : sceneNodes.map((n) => makeLabel(n.label))), [compact]);
   const packetCount = compact ? 10 : 22;
   const packets = useMemo(
     () =>
@@ -112,11 +97,6 @@ function Graph({ reduced, compact, pointer }: Omit<Props, "active">) {
               <sphereGeometry args={[0.12, 16, 16]} />
               <meshBasicMaterial color="#BFD6FF" />
             </mesh>
-            {labels[i] && (
-              <sprite position={[0, -0.75, 0]} scale={[2, 0.5, 1]}>
-                <spriteMaterial map={labels[i]} transparent depthWrite={false} />
-              </sprite>
-            )}
           </group>
         ))}
         {packets.map((_, i) => (
