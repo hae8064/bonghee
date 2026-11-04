@@ -60,7 +60,11 @@ export function Hero() {
             className="rounded-md border border-line px-4 py-2 text-ink hover:border-accent-2">GitHub</a>
         </div>
       </div>
-      <div aria-hidden className="absolute bottom-6 left-1/2 -translate-x-1/2 font-mono text-[11px] text-mute/70">scroll ↓</div>
+      <a href="#about" aria-label="아래로 스크롤"
+        className="group absolute bottom-5 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 rounded-full px-4 py-2 font-mono text-[11px] text-mute transition-colors hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent-2">
+        <span>scroll</span>
+        <span aria-hidden className="flex h-8 w-8 items-center justify-center rounded-full border border-line text-base transition-colors group-hover:border-accent-2 motion-safe:animate-bounce">↓</span>
+      </a>
     </section>
   );
 }
