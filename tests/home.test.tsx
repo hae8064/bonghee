@@ -25,6 +25,15 @@ describe("home page", () => {
       expect(container.querySelector(`a[href="/cases/${s}"]`)).not.toBeNull();
   });
 
+  it("each case card is one big link, and the qanti toggle stays a real button outside it", () => {
+    render(<Page />);
+    for (const t of ["Qanti: 하나의 이미지, 두 개의 배포 경로", "병원 미들웨어 SSO", "Annotation 결과 JSON Grid-Split", "동적 타일 서빙"])
+      expect(screen.getByRole("link", { name: `${t} 자세히 보기` })).toBeInTheDocument();
+    const toggle = screen.getAllByRole("button", { name: "폐쇄망" })[0];
+    expect(toggle.closest("a")).toBeNull();
+    expect(toggle.closest("[role=group]")?.className).toContain("z-10");
+  });
+
   it("shows the three projects and final metric values", () => {
     render(<Page />);
     for (const p of ["워크유", "공감블라인드", "dev-reader"]) expect(screen.getAllByText(p).length).toBeGreaterThan(0);

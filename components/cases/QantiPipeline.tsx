@@ -71,7 +71,7 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
   return (
     <TerminalFrame title="qanti — one image, two deploy paths">
       <div ref={ref}>
-        <div className="mb-4 flex flex-wrap items-center gap-2" role="group" aria-label="배포 환경">
+        <div className="relative z-10 mb-4 flex flex-wrap items-center gap-2" role="group" aria-label="배포 환경">
           {(["cloud", "closed"] as Env[]).map((e) => (
             <button key={e} type="button" aria-pressed={env === e} onClick={() => setEnv(e)}
               className={`rounded-md border px-3 py-1.5 font-mono text-xs transition-colors ${env === e ? "border-trace bg-trace/15 text-trace" : "border-line text-mute hover:text-ink"}`}>
