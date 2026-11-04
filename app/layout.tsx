@@ -1,35 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_KR, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const noto = Noto_Sans_KR({
+  variable: "--font-noto",
+  weight: ["400", "500", "700", "900"],
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const jetbrains = JetBrains_Mono({
+  variable: "--font-jetbrains",
+  weight: ["400", "600"],
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "개발자 이봉희 포트폴리오",
-  description: "3년 차 웹 풀스택 개발자 | 더 나은 사용자 경험을 만드는 개발자",
-  icons: {
-    icon: "/bh_logo.png",
-  },
+  title: "이봉희 | 백엔드 / 클라우드 엔지니어",
+  description:
+    "병리 AI 분석 서비스의 백엔드를 설계하고, 클라우드와 병원 폐쇄망 양쪽에서 3년 넘게 운영해 왔습니다.",
+  icons: { icon: "/bh_logo.png" },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${noto.variable} ${jetbrains.variable} antialiased`}>
         {children}
       </body>
     </html>
