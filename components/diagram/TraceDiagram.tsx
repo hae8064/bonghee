@@ -122,7 +122,7 @@ export function TraceDiagram({ lanes, steps, mode, ariaLabel, compactBelow = 640
             return (
               <g key={i} data-step opacity={animated ? "0" : "1"}>
                 <rect data-line x={a - 8} y={y - 14} width={16} height={22} rx={3} fill="none" stroke={stroke} strokeWidth={1.6} />
-                <text x={a + 16} y={y + 1} fontSize="11.5" fill="var(--ink)" fontFamily="var(--font-jetbrains), monospace">{s.label}</text>
+                <text x={a > width / 2 ? a - 16 : a + 16} y={y + 1} textAnchor={a > width / 2 ? "end" : "start"} fontSize="11.5" fill="var(--ink)" fontFamily="var(--font-jetbrains), monospace">{s.label}</text>
               </g>
             );
           }

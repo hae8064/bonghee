@@ -65,6 +65,9 @@ function Graph({ reduced, compact, pointer }: Omit<Props, "active">) {
     const t = state.clock.getElapsedTime();
     const p = pointer.current ?? { x: 0, y: 0 };
     g.position.x = offsetX;
+    // on phones the graph sits below the copy so text stays readable
+    g.position.y = compact ? -3.4 : 0;
+    g.scale.setScalar(compact ? 0.7 : 1);
     if (!reduced) {
       g.rotation.y += (p.x * 0.8 + Math.sin(t * 0.2) * 0.25 - g.rotation.y) * 0.04;
       g.rotation.x += (p.y * 0.5 - g.rotation.x) * 0.04;
