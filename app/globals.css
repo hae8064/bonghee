@@ -1,35 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #0b1222;
+  --bg-2: #111b30;
+  --bg-3: #16233d;
+  --ink: #e5eaf3;
+  --mute: #9aabc6;
+  --line: #23395e;
+  --accent: #3b82f6;
+  --accent-2: #7fb0ff;
+  --trace: #34d399;
+  --trace-2: #a7f3d0;
+  --fail: #f87171;
+  --term: #0e1116;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-trace: var(--trace);
+  --color-trace-2: var(--trace-2);
+  --color-fail: var(--fail);
+  --color-term: var(--term);
+  --font-sans: var(--font-noto), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-/* font size custom */
-@theme inline {
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-xl: 2rem;
-  --font-size-2xl: 1.75rem;
-  --font-size-3xl: 2rem;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

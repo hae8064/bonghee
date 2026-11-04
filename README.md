@@ -1,94 +1,36 @@
-# 이봉희 포트폴리오 웹사이트
-3년 차 웹 풀스택 개발자 이봉희의 포트폴리오 웹사이트입니다. 모던한 UI/UX와 반응형 디자인을 적용하여 제작되었습니다.
-<img width="1198" height="808" alt="image" src="https://github.com/user-attachments/assets/0e1dd655-1a5d-497a-bc71-30ed33fb2e7e" />
+# bonghee — 이봉희 포트폴리오
 
+백엔드 / 클라우드 엔지니어 이봉희의 포트폴리오 사이트입니다. 배포: https://bonghee.vercel.app
 
-## 🛠️ 기술 스택
+- 첫 화면: three.js(@react-three/fiber)로 그린 서비스 아키텍처, 요청이 노드 사이를 흐름
+- 설계 사례 4개(`/cases/*`): Qanti 배포 구조(Cloud/폐쇄망 토글), 병원 미들웨어 SSO, Annotation 결과 Grid-Split, 동적 타일 서빙. 흐름도는 anime.js + SVG
+- `prefers-reduced-motion`이면 애니메이션 없이 완성된 그림을 보여 줍니다
 
-### Frontend
-- **Framework**: Next.js 15.3.4 (App Router)
-- **Language**: TypeScript 5.0
-- **UI Library**: React 19.0.0
-- **Styling**: Tailwind CSS 4.0
-- **Animation**: Framer Motion
-- **Icons**: React Icons 5.5.0
+## 구조
 
-### Development Tools
-- **Package Manager**: pnpm
-- **Linting**: ESLint 9.0
-- **Code Formatting**: Prettier
-- **Type Checking**: TypeScript
-
-### Deployment
-- **Platform**: Vercel
-- **Domain**: GitHub Pages
-
-## 🎯 주요 섹션
-
-1. **About Me**: 자기소개, 기술 스택, 연락처
-2. **Experience & Education**: 경력 사항 및 교육 이력
-3. **Projects**: 주요 프로젝트 포트폴리오
-
-## 🚀 시작하기
-
-### Prerequisites
-- Node.js 18.0 이상
-- pnpm (권장) 또는 npm
-
-### Installation
-
-1. 저장소 클론
-```bash
-git clone https://github.com/hae8064/bonghee.git
-cd bonghee
+```
+content/            # 모든 문구와 수치 (여기만 고치면 화면이 바뀜)
+components/hero     # 3D 히어로
+components/diagram  # 공용 흐름도 엔진 TraceDiagram
+components/cases    # 사례별 다이어그램, 상세 페이지
+components/sections # 메인 섹션
+app/cases/[slug]    # 사례 상세 (정적 생성)
 ```
 
-2. 의존성 설치
+## 실행
+
 ```bash
 pnpm install
-# 또는
-npm install
+pnpm dev            # http://localhost:3000
+pnpm test           # vitest: 내용 규칙(병원 실명·전화번호 금지 등) + 컴포넌트
+pnpm build && pnpm start
+node scripts/verify-ui.mjs   # Playwright: 폭 320~1280 가로 스크롤·콘솔 에러·404 점검, 스크린샷 저장
 ```
 
-3. 개발 서버 실행
-```bash
-pnpm dev
-# 또는
-npm run dev
-```
+## 배포
 
-4. 브라우저에서 [http://localhost:3000](http://localhost:3000) 열기
+`develop`으로 PR이 머지되면 GitHub Actions가 테스트·빌드 후 Vercel 프로덕션에 배포합니다.
 
-### Build
+## 스택
 
-```bash
-pnpm build
-pnpm start
-```
-
-## 📝 스크립트
-
-- `pnpm dev`: 개발 서버 실행 (Turbopack 사용)
-- `pnpm build`: 프로덕션 빌드
-- `pnpm start`: 프로덕션 서버 실행
-- `pnpm lint`: ESLint로 코드 검사
-
-## 디자인 시스템
-
-- **색상**: 다크 테마 기반 (#232323, #2a2a2a, #1a1a1a)
-- **폰트**: Geist Sans, Geist Mono
-- **애니메이션**: CSS transitions, Framer Motion
-- **레이아웃**: CSS Grid, Flexbox
-
-## 📄 라이선스
-
-이 프로젝트는 MIT 라이선스 하에 배포됩니다.
-
-## 📞 연락처
-
-- **GitHub**: [@hae8064](https://github.com/hae8064)
-- **Email**: [hae8064@gmail.com]
-
----
-
-⭐ 이 프로젝트가 도움이 되었다면 스타를 눌러주세요!
+Next.js 15 (App Router) · React 19 · TypeScript · Tailwind CSS 4 · three.js · anime.js · Vitest · Playwright
