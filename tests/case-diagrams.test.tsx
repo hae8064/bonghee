@@ -31,6 +31,12 @@ describe("case diagrams", () => {
     expect(screen.getByText(/⑧ 세션 토큰/)).toBeInTheDocument();
   });
 
+  it("SSO full plays once on entry instead of tracking scroll", () => {
+    mockReducedMotion(false);
+    const { container } = render(<SsoSequence variant="full" />);
+    expect(container.querySelector('[data-mode="once"]')).not.toBeNull();
+  });
+
   it("Tile serving shows the four p95 stages", () => {
     render(<TileServing variant="full" />);
     for (const v of ["1008", "310", "99", "97"]) expect(screen.getAllByText(new RegExp(`^${v}ms$`)).length).toBeGreaterThan(0);

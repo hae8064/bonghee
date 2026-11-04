@@ -33,10 +33,13 @@ export function TraceDiagram({ lanes, steps, mode, ariaLabel, compactBelow = 640
   const width = PAD * 2 + (lanes.length - 1) * colWidth;
   const height = TOP + steps.length * ROW + 10;
   const animated = !reduced;
+  const played = useRef(false);
 
   useEffect(() => {
     const svg = svgRef.current;
     if (!svg || !animated || compact) return;
+    // "once": after the first run the diagram stays fully drawn
+    if (mode === "once" && played.current) return;
     const groups = Array.from(svg.querySelectorAll<SVGGElement>("[data-step]"));
     const tl = anime.timeline({ autoplay: false, easing: "easeInOutQuad" });
     anime.set(groups, { opacity: 0 });
@@ -68,6 +71,12 @@ export function TraceDiagram({ lanes, steps, mode, ariaLabel, compactBelow = 640
     }
 
     if (!inView) return () => tl.pause();
+    if (mode === "once") {
+      played.current = true;
+      tl.play();
+      // leaving the viewport mid-run jumps to the finished drawing instead of freezing half-drawn
+      return () => tl.seek(tl.duration);
+    }
     let timer: ReturnType<typeof setTimeout> | undefined;
     if (mode === "loop") {
       tl.complete = () => {
@@ -103,7 +112,7 @@ export function TraceDiagram({ lanes, steps, mode, ariaLabel, compactBelow = 640
   }
 
   return (
-    <div ref={wrapRef} className="w-full overflow-hidden">
+    <div ref={wrapRef} data-mode={mode} className="w-full overflow-hidden">
       <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} role="img" aria-label={ariaLabel} className="h-auto w-full">
         {lanes.map((l) => (
           <g key={l.id}>

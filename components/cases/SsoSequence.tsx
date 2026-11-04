@@ -31,7 +31,7 @@ export function SsoSequence({ variant }: { variant: "preview" | "full" }) {
       <TraceDiagram
         lanes={lanes}
         steps={full ? [...base, failStep] : base}
-        mode={full ? "scroll" : "loop"}
+        mode={full ? "once" : "loop"}
         ariaLabel="병원 미들웨어 SSO 로그인 흐름: 티켓 발급부터 세션 토큰까지 8단계"
         colWidth={200}
       />
