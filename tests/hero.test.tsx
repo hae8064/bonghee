@@ -15,6 +15,11 @@ describe("Hero", () => {
     expect(container.querySelector("[data-hero-fallback]")).not.toBeNull();
   });
 
+  it("scroll cue is a link to the about section", () => {
+    render(<Hero />);
+    expect(screen.getByRole("link", { name: "아래로 스크롤" })).toHaveAttribute("href", "#about");
+  });
+
   it("scene edges only reference existing nodes", () => {
     const ids = new Set(sceneNodes.map((n) => n.id));
     for (const [a, b] of sceneEdges) {
