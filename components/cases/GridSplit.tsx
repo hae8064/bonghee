@@ -1,7 +1,7 @@
 "use client";
 
 import anime from "animejs";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useInView } from "@/lib/useInView";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { TerminalFrame } from "./TerminalFrame";
@@ -12,12 +12,27 @@ const GX = 330;
 const GY = 30;
 // ROI covers grid columns 3–5, rows 2–4
 const ROI = { x0: 3, x1: 5, y0: 2, y1: 4 };
+/** Below 520px the full 600-wide drawing shrinks text to ~5px, so phones see only the grid half. */
+export function gridViewBox(containerWidth: number): string {
+  return containerWidth < 520 ? "318 18 244 262" : "0 0 600 270";
+}
+
 const inRoi = (x: number, y: number) => x >= ROI.x0 && x <= ROI.x1 && y >= ROI.y0 && y <= ROI.y1;
 
 export function GridSplit({ variant }: { variant: "preview" | "full" }) {
   const reduced = useReducedMotion();
   const [ref, inView] = useInView<HTMLDivElement>({ threshold: 0.3 });
   const svg = useRef<SVGSVGElement>(null);
+  const [viewBox, setViewBox] = useState(gridViewBox(1000));
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || typeof ResizeObserver === "undefined") return;
+    const ro = new ResizeObserver(([e]) => setViewBox(gridViewBox(e.contentRect.width)));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, [ref]);
+  const narrow = viewBox !== gridViewBox(1000);
 
   useEffect(() => {
     const el = svg.current;
@@ -47,7 +62,13 @@ export function GridSplit({ variant }: { variant: "preview" | "full" }) {
   return (
     <TerminalFrame title="sectra — grid-split content loading">
       <div ref={ref}>
-        <svg ref={svg} viewBox="0 0 600 270" role="img" className="h-auto w-full"
+        {narrow && (
+          <p className="mb-2 font-mono text-[11.5px] leading-relaxed">
+            <span className="text-fail">이전: content.json 172MB ~ 1.9GB 통째로 파싱</span>
+            <span className="block text-trace">이후: ROI가 걸치는 칸만 읽기</span>
+          </p>
+        )}
+        <svg ref={svg} viewBox={viewBox} role="img" className="h-auto w-full"
           aria-label="결과 JSON 전체 대신 10×10 좌표 그리드 중 ROI가 걸치는 칸만 읽는 구조">
           {/* before: one big file */}
           <rect x="20" y="40" width="130" height="170" rx="6" fill="#2a1418" stroke="var(--fail)" strokeOpacity=".6" />

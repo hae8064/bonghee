@@ -6,8 +6,14 @@ import { profile } from "@/content/profile";
 import { canUseWebGL } from "@/lib/webgl";
 import { useInView } from "@/lib/useInView";
 import { useReducedMotion } from "@/lib/useReducedMotion";
+import { SceneBoundary } from "./SceneBoundary";
 
 const ArchitectureScene = dynamic(() => import("./ArchitectureScene"), { ssr: false });
+
+const fallback = (
+  <div data-hero-fallback aria-hidden className="absolute inset-0 opacity-60"
+    style={{ background: "radial-gradient(circle at 75% 45%, rgba(59,130,246,.35) 0, transparent 40%)" }} />
+);
 
 export function Hero() {
   const [ref, inView] = useInView<HTMLElement>({ threshold: 0 });
@@ -36,10 +42,11 @@ export function Hero() {
       style={{ background: "radial-gradient(ellipse at 70% 40%, #1d3561 0%, #0B1222 70%)" }}
     >
       {webgl ? (
-        <ArchitectureScene active={inView} reduced={reduced} compact={compact} pointer={pointer} />
+        <SceneBoundary fallback={fallback}>
+          <ArchitectureScene active={inView} reduced={reduced} compact={compact} pointer={pointer} />
+        </SceneBoundary>
       ) : (
-        <div data-hero-fallback aria-hidden className="absolute inset-0 opacity-60"
-          style={{ background: "radial-gradient(circle at 75% 45%, rgba(59,130,246,.35) 0, transparent 40%)" }} />
+        fallback
       )}
       <div aria-hidden className="pointer-events-none absolute inset-0 z-[5] bg-gradient-to-r from-bg/80 via-bg/30 to-transparent md:from-bg/50 md:via-transparent" />
       <div className="pointer-events-none relative z-10 mx-auto w-full max-w-6xl px-4 sm:px-8">

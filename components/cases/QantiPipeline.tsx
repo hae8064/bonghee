@@ -50,8 +50,13 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
     return () => a.pause();
   }, [reduced, inView]);
 
-  // morph changed parts on toggle
+  // morph changed parts on toggle — never on first mount, so nothing starts hidden
+  const firstEnv = useRef(true);
   useEffect(() => {
+    if (firstEnv.current) {
+      firstEnv.current = false;
+      return;
+    }
     if (reduced) return;
     const targets = [
       ...(rowRef.current?.querySelectorAll("[data-env-part]") ?? []),
@@ -59,7 +64,8 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
     ];
     if (!targets.length) return;
     const a = anime({ targets, opacity: [0, 1], translateY: [8, 0], delay: anime.stagger(60), duration: 420, easing: "easeOutQuad" });
-    return () => a.pause();
+    // finish rather than freeze mid-fade if interrupted
+    return () => a.seek(a.duration);
   }, [env, reduced]);
 
   return (
