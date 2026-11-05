@@ -36,6 +36,7 @@ export const experience: Experience = {
         "JWT 기반 SSO 위임 흐름과 OIDC SSO(Authorization Code + PKCE) 연동",
         "보안성 평가 대응으로 방화벽, 계정 정책, DB 계정 분리와 체크리스트 작성",
         "GitHub Actions와 ECS/ECR 무중단 배포 시간 20분에서 5분, 같은 도커 이미지를 On-Prem에 반입",
+        "상급종합병원 중심 10곳 이상 병원 서버실에 GPU 서버를 직접 설치해 On-Prem 구축·운영",
       ],
     },
   ],

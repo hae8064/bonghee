@@ -41,7 +41,7 @@ export function CaseDetail({ c, prev, next }: { c: CaseStudy; prev?: CaseStudy; 
       <div className="mt-10">{caseDiagram(c.slug, "full")}</div>
 
       {c.slug === "qanti" && (
-        <Block title="DEPLOYMENT · 폐쇄망 배포 구성도 (병원 한 곳 기준, 기관 정보 비식별)">
+        <Block title="DEPLOYMENT · On-Prem 배포 구성도 (병원 서버실 한 곳 기준, 기관 정보 비식별)">
           <QantiTopology />
         </Block>
       )}

@@ -29,7 +29,7 @@ describe("home page", () => {
     render(<Page />);
     for (const t of ["Qanti: 하나의 이미지, 두 개의 배포 경로", "병원 미들웨어 SSO", "Annotation 결과 JSON Grid-Split", "동적 타일 서빙"])
       expect(screen.getByRole("link", { name: `${t} 자세히 보기` })).toBeInTheDocument();
-    const toggle = screen.getAllByRole("button", { name: "폐쇄망" })[0];
+    const toggle = screen.getAllByRole("button", { name: "On-Prem" })[0];
     expect(toggle.closest("a")).toBeNull();
     expect(toggle.closest("[role=group]")?.className).toContain("z-10");
   });

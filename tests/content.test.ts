@@ -20,6 +20,14 @@ describe("content rules", () => {
     expect(all).not.toContain("단독 구현");
     expect(all).not.toContain("혼자");
   });
+  it("uses On-Prem naming and shows the server-room installs", () => {
+    expect(all).not.toContain("폐쇄망");
+    expect(profile.heroLine).toContain("On-Prem");
+    const q = JSON.stringify(getCase("qanti"));
+    expect(q).toContain("서버실");
+    expect(q).toContain("직접 설치");
+    expect(profile.pillars.map((p) => p.title)).toContain("클라우드 · On-Prem 운영");
+  });
   it("cases in order", () =>
     expect(cases.map((c) => c.slug)).toEqual(["qanti", "sso", "annotation-grid", "tile-serving"]));
   it("tile case states Rust is isolation not speed", () => {
