@@ -74,7 +74,7 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
         <div className="relative z-10 mb-4 flex flex-wrap items-center gap-2" role="group" aria-label="배포 환경">
           {(["cloud", "onprem"] as Env[]).map((e) => (
             <button key={e} type="button" aria-pressed={env === e} onClick={() => setEnv(e)}
-              className={`rounded-md border px-3 py-1.5 font-mono text-xs transition-colors ${env === e ? "border-trace bg-trace/15 text-trace" : "border-line text-mute hover:text-ink"}`}>
+              className={`cursor-pointer rounded-md border px-3 py-1.5 font-mono text-xs transition-[color,background-color,border-color,transform] duration-150 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-trace ${env === e ? "border-trace bg-trace/15 text-trace" : "border-line text-mute hover:border-trace/60 hover:bg-trace/10 hover:text-ink"}`}>
               {e === "cloud" ? "Cloud" : "On-Prem"}
             </button>
           ))}
