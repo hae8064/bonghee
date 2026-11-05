@@ -19,7 +19,7 @@ const jetbrains = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "이봉희 | 백엔드 / 클라우드 엔지니어",
   description:
-    "병리 AI 분석 서비스의 백엔드를 설계하고, 클라우드와 병원 폐쇄망 양쪽에서 3년 넘게 운영해 왔습니다.",
+    "병리 AI 분석 서비스의 백엔드를 설계하고, AWS 클라우드와 병원 서버실 On-Prem 양쪽에서 3년 넘게 운영해 왔습니다.",
   icons: { icon: "/bh_logo.png" },
 };
 

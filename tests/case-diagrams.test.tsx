@@ -10,10 +10,10 @@ import { caseDiagram } from "@/components/cases/diagrams";
 describe("case diagrams", () => {
   beforeEach(() => mockReducedMotion(true));
 
-  it("Qanti toggle swaps cloud parts for closed-network parts", () => {
+  it("Qanti toggle swaps cloud parts for on-prem parts", () => {
     render(<QantiPipeline variant="full" />);
     expect(screen.getByText("AWS SQS")).toBeInTheDocument();
-    const closed = screen.getByRole("button", { name: "폐쇄망" });
+    const closed = screen.getByRole("button", { name: "On-Prem" });
     expect(closed.tagName).toBe("BUTTON");
     expect(closed).toHaveAttribute("aria-pressed", "false");
     fireEvent.click(closed);

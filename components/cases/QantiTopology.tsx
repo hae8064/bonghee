@@ -6,7 +6,7 @@ import { useInView } from "@/lib/useInView";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { TerminalFrame } from "./TerminalFrame";
 
-// One closed-network hospital install, de-identified: no institution, IP, hostname or vendor names.
+// One on-prem hospital server-room install, de-identified: no institution, IP, hostname or vendor names.
 
 type Box = { x: number; y: number; w: number; h: number; title: string; sub?: string; lines?: string[]; port?: string; tone?: "app" | "host" | "ext" | "db" | "store" };
 
@@ -139,11 +139,11 @@ export function QantiTopology() {
   }, [reduced, inView]);
 
   return (
-    <TerminalFrame title="deploy — closed-network install (de-identified)">
+    <TerminalFrame title="deploy — on-prem server-room install (de-identified)">
       <div ref={ref}>
         <div className="-mx-1 overflow-x-auto pb-2">
           <svg ref={svg} viewBox="0 0 1200 720" role="img" className="h-auto w-full min-w-[860px]"
-            aria-label="병원 폐쇄망 한 곳의 배포 구성도: 방화벽, 호스트 서비스, Docker 컨테이너 5개와 요청 흐름 9단계">
+            aria-label="병원 서버실 On-Prem 한 곳의 배포 구성도: 방화벽, 호스트 서비스, Docker 컨테이너 5개와 요청 흐름 9단계">
             <defs>
               {["a7", "pur", "acc", "trc"].map((id, i) => (
                 <marker key={id} id={`arr-${id}`} viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">

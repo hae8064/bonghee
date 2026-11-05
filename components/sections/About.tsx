@@ -27,7 +27,7 @@ export function About() {
           ))}
         </div>
       </div>
-      <div className="mt-10 grid gap-4 md:grid-cols-3">
+      <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {profile.pillars.map((p) => (
           <div key={p.title} className="rounded-lg border border-line bg-bg-2/60 p-5">
             <h3 className="font-bold text-white">{p.title}</h3>
