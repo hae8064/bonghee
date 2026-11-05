@@ -6,22 +6,22 @@ import { useInView } from "@/lib/useInView";
 import { useReducedMotion } from "@/lib/useReducedMotion";
 import { TerminalFrame } from "./TerminalFrame";
 
-type Env = "cloud" | "closed";
+type Env = "cloud" | "onprem";
 
 const stages: { name: string; sub: Record<Env, string> }[] = [
-  { name: "스캐너", sub: { cloud: "WSI · SVS, MRXS", closed: "WSI · SVS, MRXS" } },
-  { name: "수집", sub: { cloud: "공유폴더 감시 · CIFS + cron", closed: "공유폴더 감시 · CIFS + cron" } },
-  { name: "API", sub: { cloud: "업로드 접수 · Spring Boot", closed: "업로드 접수 · Spring Boot" } },
-  { name: "큐", sub: { cloud: "AWS SQS", closed: "RabbitMQ" } },
-  { name: "추론", sub: { cloud: "GPU 컨테이너 · FastAPI, CUDA", closed: "GPU 컨테이너 · FastAPI, CUDA" } },
-  { name: "저장", sub: { cloud: "결과, 좌표 · MongoDB", closed: "결과, 좌표 · MongoDB" } },
-  { name: "뷰어", sub: { cloud: "WebGL 뷰어 · EMR/LIS/PACS 회신", closed: "WebGL 뷰어 · EMR/LIS/PACS 회신" } },
+  { name: "스캐너", sub: { cloud: "WSI · SVS, MRXS", onprem: "WSI · SVS, MRXS" } },
+  { name: "수집", sub: { cloud: "공유폴더 감시 · CIFS + cron", onprem: "공유폴더 감시 · CIFS + cron" } },
+  { name: "API", sub: { cloud: "업로드 접수 · Spring Boot", onprem: "업로드 접수 · Spring Boot" } },
+  { name: "큐", sub: { cloud: "AWS SQS", onprem: "RabbitMQ" } },
+  { name: "추론", sub: { cloud: "GPU 컨테이너 · FastAPI, CUDA", onprem: "GPU 컨테이너 · FastAPI, CUDA" } },
+  { name: "저장", sub: { cloud: "결과, 좌표 · MongoDB", onprem: "결과, 좌표 · MongoDB" } },
+  { name: "뷰어", sub: { cloud: "WebGL 뷰어 · EMR/LIS/PACS 회신", onprem: "WebGL 뷰어 · EMR/LIS/PACS 회신" } },
 ];
 
 const envRows: { k: string; v: Record<Env, string> }[] = [
-  { k: "이미지 전달", v: { cloud: "ECR에서 pull, 태그 교체로 버전 지정", closed: "tar로 save, 암호화 전송 후 반입해 load" } },
-  { k: "실행", v: { cloud: "ECS / EKS 롤링 배포, ArgoCD GitOps", closed: "서버실 GPU 서버 직접 구성 (RTX A5000, 4080S)" } },
-  { k: "관측", v: { cloud: "CloudWatch", closed: "Prometheus · Grafana · Loki" } },
+  { k: "이미지 전달", v: { cloud: "ECR에서 pull, 태그 교체로 버전 지정", onprem: "tar로 save, 암호화 전송 후 반입해 load" } },
+  { k: "실행", v: { cloud: "ECS / EKS 롤링 배포, ArgoCD GitOps", onprem: "서버실 GPU 서버 직접 구성 (RTX A5000, 4080S)" } },
+  { k: "관측", v: { cloud: "CloudWatch", onprem: "Prometheus · Grafana · Loki" } },
 ];
 
 export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
@@ -72,10 +72,10 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
     <TerminalFrame title="qanti — one image, two deploy paths">
       <div ref={ref}>
         <div className="relative z-10 mb-4 flex flex-wrap items-center gap-2" role="group" aria-label="배포 환경">
-          {(["cloud", "closed"] as Env[]).map((e) => (
+          {(["cloud", "onprem"] as Env[]).map((e) => (
             <button key={e} type="button" aria-pressed={env === e} onClick={() => setEnv(e)}
               className={`rounded-md border px-3 py-1.5 font-mono text-xs transition-colors ${env === e ? "border-trace bg-trace/15 text-trace" : "border-line text-mute hover:text-ink"}`}>
-              {e === "cloud" ? "Cloud" : "폐쇄망"}
+              {e === "cloud" ? "Cloud" : "On-Prem"}
             </button>
           ))}
           <span className="ml-1 font-mono text-[11px] text-mute">같은 Docker 이미지, 부품만 교체</span>
@@ -83,7 +83,7 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
 
         <ol ref={rowRef} className="grid grid-cols-2 gap-2 sm:grid-cols-4 lg:grid-cols-7">
           {stages.map((s, i) => {
-            const varies = s.sub.cloud !== s.sub.closed;
+            const varies = s.sub.cloud !== s.sub.onprem;
             return (
               <li key={s.name} data-stage
                 className={`relative rounded-md border border-line bg-bg-2/60 px-2.5 py-2 ${varies ? "ring-1 ring-trace/30" : ""}`}>
@@ -112,8 +112,8 @@ export function QantiPipeline({ variant }: { variant: "preview" | "full" }) {
         )}
 
         <p key={env} data-env-part="" className="mt-4 text-[13px] leading-relaxed text-mute">
-          {env === "closed"
-            ? "상급종합병원 중심 10곳 이상 서버실을 직접 구축·운영했습니다. 자동 업데이트 차단, 드라이버 버전 고정, 이미지 암호화 반입을 설정과 스크립트로 고정했습니다."
+          {env === "onprem"
+            ? "상급종합병원 중심 10곳 이상, 병원 서버실에 GPU 서버를 직접 설치해 On-Prem으로 구축·운영했습니다. 자동 업데이트 차단, 드라이버 버전 고정, 이미지 암호화 반입을 설정과 스크립트로 고정했습니다."
             : "소스에서 빌드한 Docker 이미지 하나를 태그로 고정합니다. 어느 쪽이든 앱 재빌드 없이 모델만 교체하고 되돌립니다."}
         </p>
       </div>
