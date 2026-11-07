@@ -4,14 +4,15 @@ export const projects: Project[] = [
   {
     name: "워크유",
     period: "2026.10 – 운영 중",
-    role: "외주, 설계부터 배포까지",
-    summary: "유학생 구인·구직 서비스. Next.js + NestJS + PostgreSQL로 전부 구현하고 AWS에 배포해 운영 중입니다.",
+    role: "설계, 개발, 배포, 인프라 전담",
+    summary: "외국인·유학생과 사장님을 잇는 구인·구직 서비스. Next.js + NestJS + PostgreSQL로 전부 구현하고 AWS에 배포해 운영 중입니다.",
     points: [
-      "Next.js + NestJS + PostgreSQL 모노레포로 전부 구현",
-      "신분증 업로드 후 운영자 승인하는 신분 확인, 운영자 이메일 코드 2FA",
-      "유료 외부 호출(번역)을 어댑터 뒤에 두고 환경변수로 실제·테스트 구현 교체",
+      "번역 · 메일 · 푸시 · 신분증 판독처럼 기다리지 않아도 되는 일은 BullMQ 큐 11개로 분리, API는 즉시 응답만",
+      "비자 · 최저임금 규칙을 공용 패키지 하나로 웹과 API가 함께 사용, 화면은 안내하고 서버가 차단",
+      "CI 통과 시 커밋 SHA 이미지를 GHCR에 올리고, SSM으로 DB 백업 → migrate → 배포 → 상태 확인, 이전 SHA로 롤백",
+      "신분증은 Claude 판독 후 운영자 승인, 사업자번호는 국세청 진위 확인, 외국인등록번호는 받지 않음",
     ],
-    stack: ["Next.js", "NestJS", "PostgreSQL", "Redis", "AWS EC2 / RDS / S3", "Docker"],
+    stack: ["Next.js", "NestJS", "PostgreSQL (Prisma)", "Redis · BullMQ", "AWS EC2 / RDS / S3 / SSM", "Docker · GHCR"],
     links: [{ label: "worku.kr", href: "https://worku.kr" }],
   },
   {
